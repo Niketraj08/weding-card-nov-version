@@ -26,7 +26,7 @@
 
     function a(e) {
         if (!r) throw Error("Cannot access document outside of the DOM");
-        return (null == e ? void 0 : e.ownerDocument) ? ? document
+        return (null == e ? void 0 : e.ownerDocument) ?? document
     }
 
     function l(e) {
@@ -35,7 +35,7 @@
     n(i, "composeEventHandlers"), n(function(e) {
         var t;
         if (!r) throw Error("Cannot access window outside of the DOM");
-        return (null == e || null == (t = e.ownerDocument) ? void 0 : t.defaultView) ? ? window
+        return (null == e || null == (t = e.ownerDocument) ? void 0 : t.defaultView) ?? window
     }, "getOwnerWindow"), n(a, "getOwnerDocument"), n(function e(t) {
         let n = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             {
@@ -206,7 +206,7 @@
                 registry: m
             } = (0, s.D)(), [h, g] = (0, l.f)({
                 prop: i,
-                defaultProp: o ? ? !1,
+                defaultProp: o ?? !1,
                 onChange: u,
                 caller: y
             }), [x, w] = t.useState(0), [b, j] = t.useState(0);
@@ -772,7 +772,7 @@
                             t.gate !== r && v(t = {
                                 gate: r,
                                 target: (0, s.E)(r),
-                                host: r.closest("dialog") ? ? document.body,
+                                host: r.closest("dialog") ?? document.body,
                                 since: t.since
                             });
                             return
@@ -783,7 +783,7 @@
                         }(e += .25) < 10 || v(t = {
                             gate: r,
                             target: (0, s.E)(r),
-                            host: r.closest("dialog") ? ? document.body,
+                            host: r.closest("dialog") ?? document.body,
                             since: performance.now()
                         })
                     }, 250);
@@ -798,7 +798,7 @@
                 var e;
                 if (!g) return;
                 let t = 0,
-                    n = (null == (e = y.current) ? void 0 : e.getContext("2d")) ? ? null,
+                    n = (null == (e = y.current) ? void 0 : e.getContext("2d")) ?? null,
                     r = !0,
                     i = new Map,
                     a = (e, t, n, r) => {
@@ -1403,12 +1403,12 @@
         n = "[data-gate-target]";
 
     function r(e) {
-        return e.closest("[role=dialog], dialog") ? ? e
+        return e.closest("[role=dialog], dialog") ?? e
     }
 
     function i(e, n) {
         let r = e.querySelector(t);
-        return !!e.defaultView && !!r && (a("dialog" === r.getAttribute("role") ? r.querySelector("button, [role='button']") ? ? r : r, n), !0)
+        return !!e.defaultView && !!r && (a("dialog" === r.getAttribute("role") ? r.querySelector("button, [role='button']") ?? r : r, n), !0)
     }
 
     function a(e, t) {
@@ -1430,12 +1430,12 @@
         }).some(e => {
             var t;
             if ("running" !== e.playState) return !1;
-            let n = Number((null == (t = e.effect) ? void 0 : t.getComputedTiming().endTime) ? ? 0);
+            let n = Number((null == (t = e.effect) ? void 0 : t.getComputedTiming().endTime) ?? 0);
             return Number.isFinite(n) && n <= 1e4
         })
     }, "E", 0, function(e) {
         let t = r(e);
-        return t.matches(n) ? t : t.querySelector(n) ? ? e
+        return t.matches(n) ? t : t.querySelector(n) ?? e
     }, "f", 0, function(e, t) {
         var n;
         let r = null == (n = e.elementFromPoint) ? void 0 : n.call(e, t.x, t.y);
@@ -1575,7 +1575,7 @@
                             n = u.y.safeParse({
                                 partnerOneName: t.get("partnerOneName"),
                                 partnerTwoName: t.get("partnerTwoName"),
-                                date: t.get("date") ? ? ""
+                                date: t.get("date") ?? ""
                             });
                         n.success && ((0, s.h)(n.data), f(), h(!1))
                     },
@@ -1591,7 +1591,7 @@
                             required: !0,
                             maxLength: 80,
                             autoComplete: "off",
-                            defaultValue: (null == p ? void 0 : p.partnerOneName) ? ? ""
+                            defaultValue: (null == p ? void 0 : p.partnerOneName) ?? ""
                         })]
                     }), (0, t.jsxs)("div", {
                         className: "grid gap-1.5",
@@ -1604,7 +1604,7 @@
                             required: !0,
                             maxLength: 80,
                             autoComplete: "off",
-                            defaultValue: (null == p ? void 0 : p.partnerTwoName) ? ? ""
+                            defaultValue: (null == p ? void 0 : p.partnerTwoName) ?? ""
                         })]
                     }), (0, t.jsxs)("div", {
                         className: "grid gap-1.5",
@@ -1615,7 +1615,7 @@
                             id: "name-preview-date",
                             name: "date",
                             placeholder: d.datePlaceholder,
-                            defaultValue: (null == p ? void 0 : p.date) ? ? ""
+                            defaultValue: (null == p ? void 0 : p.date) ?? ""
                         })]
                     }), (0, t.jsxs)("div", {
                         className: "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
@@ -1811,13 +1811,13 @@
         }));
         if (0 === n.size) return e;
         let r = [...n.keys()].sort((e, t) => t.length - e.length).map(c).join("|");
-        return e.replace(RegExp(r, "g"), e => n.get(e) ? ? e)
+        return e.replace(RegExp(r, "g"), e => n.get(e) ?? e)
     }
     e.s(["$", 0, function(e, t) {
         let n = [e.couple.partnerOneName, e.couple.partnerTwoName],
             r = [t.partnerOneName, t.partnerTwoName],
             i = e => {
-                let t = e.trim().split(/\s+/)[0] ? ? "";
+                let t = e.trim().split(/\s+/)[0] ?? "";
                 return t !== e.trim() && t.length >= 3 ? t : ""
             },
             l = [
@@ -1827,7 +1827,7 @@
                 [i(n[1]), r[1]]
             ],
             s = u(t.date),
-            c = e.events.find(e => o.has(e.type) && null !== u(e.date)) ? ? e.events.find(e => null !== u(e.date)),
+            c = e.events.find(e => o.has(e.type) && null !== u(e.date)) ?? e.events.find(e => null !== u(e.date)),
             f = c ? u(c.date) : null,
             p = null !== s && null !== f ? s - f : 0,
             m = e => {
@@ -1942,9 +1942,9 @@
             trackEmptiness: h
         } = function(e, t) {
             let r = void 0 !== e,
-                [i, a] = n.useState(() => "" === String(t ? ? ""));
+                [i, a] = n.useState(() => "" === String(t ?? ""));
             return {
-                isEmpty: r ? "" === String(e ? ? "") : i,
+                isEmpty: r ? "" === String(e ?? "") : i,
                 trackEmptiness: n.useCallback(e => {
                     r || a("" === e.target.value)
                 }, [r])
@@ -1969,7 +1969,7 @@
             }), m && (0, t.jsx)("span", {
                 "aria-hidden": !0,
                 className: "pointer-events-none absolute inset-y-0 left-3.5 flex items-center text-base text-muted-foreground peer-focus:hidden lg:text-sm",
-                children: c ? ? o
+                children: c ?? o
             })]
         })
     });

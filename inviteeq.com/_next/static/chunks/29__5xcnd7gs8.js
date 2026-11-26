@@ -706,7 +706,7 @@
             var e;
             let t = this.clonePosition(),
                 r = this.offset(),
-                i = (e = this.message, V.lastIndex = r, V.exec(e)[1] ? ? ""),
+                i = (e = this.message, V.lastIndex = r, V.exec(e)[1] ?? ""),
                 n = r + i.length;
             return this.bumpTo(n), {
                 value: i,
@@ -896,7 +896,7 @@
                                 type: "number" === s ? 2 : "date" === s ? 3 : 4,
                                 value: r,
                                 location: n,
-                                style: (null == e ? void 0 : e.style) ? ? null
+                                style: (null == e ? void 0 : e.style) ?? null
                             },
                             err: null
                         }
@@ -1277,7 +1277,7 @@
             if (this.isEOF()) return null;
             let e = this.char(),
                 t = this.offset();
-            return this.message.charCodeAt(t + (e >= 65536 ? 2 : 1)) ? ? null
+            return this.message.charCodeAt(t + (e >= 65536 ? 2 : 1)) ?? null
         }
         constructor(e, t = {}) {
             this.message = e, this.position = {
@@ -1630,7 +1630,7 @@ Try polyfilling it using "@formatjs/intl-pluralrules"
             }), n), {
                 formatters: { ...c,
                     getDateTimeFormat: (e, t) => c.getDateTimeFormat(e, { ...t,
-                        timeZone: (null == t ? void 0 : t.timeZone) ? ? b
+                        timeZone: (null == t ? void 0 : t.timeZone) ?? b
                     })
                 }
             })
@@ -1887,7 +1887,7 @@ Try polyfilling it using "@formatjs/intl-pluralrules"
 
                         function p(e, t, r, i) {
                             let n = new m(t, r);
-                            return l(n), i ? ? s({
+                            return l(n), i ?? s({
                                 error: n,
                                 key: e,
                                 namespace: a

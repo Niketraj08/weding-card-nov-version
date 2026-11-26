@@ -469,7 +469,7 @@
                 return s.useEffect(() => {
                     let e = l.current,
                         t = y.current;
-                    (((null == t ? void 0 : t.element) ? ? null) !== e || e && (null == t ? void 0 : t.itemData) !== h) && (y.current = e ? {
+                    (((null == t ? void 0 : t.element) ?? null) !== e || e && (null == t ? void 0 : t.itemData) !== h) && (y.current = e ? {
                         element: e,
                         itemData: h
                     } : null, a(n => {
@@ -1436,8 +1436,8 @@
                 eM = (0, eC.f)(t, eL),
                 [ek, eN] = n.useState(null),
                 ez = (0, eE.f)(ek),
-                eH = (null == ez ? void 0 : ez.width) ? ? 0,
-                e$ = (null == ez ? void 0 : ez.height) ? ? 0,
+                eH = (null == ez ? void 0 : ez.width) ?? 0,
+                e$ = (null == ez ? void 0 : ez.height) ?? 0,
                 eW = "number" == typeof ea ? ea : {
                     top: 0,
                     right: 0,
@@ -2136,7 +2136,7 @@
                 start: "0%",
                 center: "50%",
                 end: "100%"
-            }[d], h = ((null == (r = a.arrow) ? void 0 : r.x) ? ? 0) + f / 2, m = ((null == (i = a.arrow) ? void 0 : i.y) ? ? 0) + u / 2, g = "", y = "";
+            }[d], h = ((null == (r = a.arrow) ? void 0 : r.x) ?? 0) + f / 2, m = ((null == (i = a.arrow) ? void 0 : i.y) ?? 0) + u / 2, g = "", y = "";
             return "bottom" === c ? (g = s ? p : `${h}px`, y = `${-u}px`) : "top" === c ? (g = s ? p : `${h}px`, y = `${l.floating.height+u}px`) : "right" === c ? (g = `${-u}px`, y = s ? p : `${m}px`) : "left" === c && (g = `${l.floating.width+u}px`, y = s ? p : `${m}px`), {
                 data: {
                     x: g,

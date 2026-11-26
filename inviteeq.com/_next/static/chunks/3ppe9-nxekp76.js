@@ -97,9 +97,9 @@
         ];
 
     function S(e) {
-        let a = e.type ? ? "CUSTOM";
+        let a = e.type ?? "CUSTOM";
         if ("CUSTOM" !== a) return F[a];
-        let t = e.name ? ? "";
+        let t = e.name ?? "";
         for (let [e, a] of L)
             if (e.test(t)) return a;
         return F.CUSTOM
@@ -154,7 +154,7 @@
     }
 
     function I(e) {
-        return (null == e ? void 0 : e.enabled) ? (e.content ? ? "").split(/\n\s*\n/).map(e => e.replace(/^\s+|\s+$/g, "")).filter(Boolean) : []
+        return (null == e ? void 0 : e.enabled) ? (e.content ?? "").split(/\n\s*\n/).map(e => e.replace(/^\s+|\s+$/g, "")).filter(Boolean) : []
     }
     let B = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/,
         U = /[\u0679\u0688\u0691\u06BA\u06BE\u06C1\u06D2\u06D3\u067E\u0686\u0698\u06A9\u06AF\u06CC]/;
@@ -169,7 +169,7 @@
     }
 
     function J(e) {
-        let a = (null == e ? void 0 : e.trim()) ? ? "";
+        let a = (null == e ? void 0 : e.trim()) ?? "";
         return /^https:\/\/[^\s"'\\()]+$/.test(a) ? a : ""
     }
 
@@ -773,7 +773,7 @@
                         } else i.x += i.vx + .22 * Math.sin(e / 1700 + i.phase), i.y += i.vy + .16 * Math.cos(e / 2100 + i.phase), i.x < 0 && (i.x += a.width), i.x > a.width && (i.x -= a.width), i.y < .2 * a.height && (i.vy = Math.abs(i.vy)), i.y > a.height && (i.vy = -Math.abs(i.vy));
                         let n = i.burst ? i.life : .35 + .65 * Math.max(0, Math.sin(e / 900 + i.phase)),
                             o = l.createRadialGradient(i.x, i.y, 0, i.x, i.y, 4 * i.r);
-                        l.globalAlpha = n, o.addColorStop(0, i.color ? ? r), o.addColorStop(1, "rgba(0,0,0,0)"), l.fillStyle = o, l.beginPath(), l.arc(i.x, i.y, 4 * i.r, 0, 2 * Math.PI), l.fill()
+                        l.globalAlpha = n, o.addColorStop(0, i.color ?? r), o.addColorStop(1, "rgba(0,0,0,0)"), l.fillStyle = o, l.beginPath(), l.arc(i.x, i.y, 4 * i.r, 0, 2 * Math.PI), l.fill()
                     }
                     l.globalAlpha = 1, s = requestAnimationFrame(g)
                 },
@@ -824,7 +824,7 @@
     function eM(e, a) {
         return {
             fontFamily: e.headingFont,
-            fontWeight: e.headingWeight ? ? 600,
+            fontWeight: e.headingWeight ?? 600,
             color: a
         }
     }
@@ -846,7 +846,7 @@
             dir: d ? "rtl" : void 0,
             "data-face": d,
             style: { ...n,
-                fontFamily: d ? eT[d] : s ? ? (null == n ? void 0 : n.fontFamily)
+                fontFamily: d ? eT[d] : s ?? (null == n ? void 0 : n.fontFamily)
             },
             children: l
         })
@@ -2117,7 +2117,7 @@
             weekday: "long"
         }) : "", w = (0, i.A)(d), N = null == (s = d.venueAddress) ? void 0 : s.trim(), _ = null == (r = d.dressCode) ? void 0 : r.trim(), $ = (0, i.L)(d.dressCodeColor), W = (0, i.B)(d), C = w || N || d.mapsUrl ? q(d) : null, F = (null == (n = d.name) ? void 0 : n.trim()) || p("fallbackName"), L = (0, t.useRef)(null);
         (0, e7._)(L, F);
-        let S = (null == (o = d.description) ? void 0 : o.trim()) ? ? "",
+        let S = (null == (o = d.description) ? void 0 : o.trim()) ?? "",
             T = !!S && !0 === d.descriptionOnTop,
             O = d.date ? (0, eK.f)(d) : null,
             R = A([d], F),
@@ -2709,7 +2709,7 @@
 
     function af(e) {
         let a = e.firstElementChild;
-        return Math.max(1, ((null == a ? void 0 : a.offsetWidth) ? ? e.clientWidth) + ap(e))
+        return Math.max(1, ((null == a ? void 0 : a.offsetWidth) ?? e.clientWidth) + ap(e))
     }
     var ag = e.i(159800);
     let ay = ["petal-rose-deep", "petal-rose-pale", "petal-rose", "petal-jasmine", "petal-almond"];
@@ -3525,7 +3525,7 @@
         } = eq(), h = (0, aw.L)(), [m, p] = (0, c.i)(.3);
         eJ(m);
         let f = s && "tree" !== s.style ? s : void 0,
-            g = (null == f || null == (t = f.blessings) ? void 0 : t.trim()) ? ? "",
+            g = (null == f || null == (t = f.blessings) ? void 0 : t.trim()) ?? "",
             y = f ? (0, n.n)(f, r).filter(e => e.grandparents.length > 0) : [];
         if (!g && 0 === y.length) return null;
         let v = (e, t) => (0, a.jsxs)("div", {
@@ -4144,10 +4144,10 @@
         (0, b.f)(X, aL);
         let {
             couple: ee
-        } = q, ea = (0, t.useMemo)(() => (0, u.T)(u.K, q.sections), [q.sections]), et = (0, t.useMemo)(() => [...q.events ? ? []].sort((e, a) => (e.displayOrder ? ? 0) - (a.displayOrder ? ? 0)), [q.events]), el = (0, t.useMemo)(() => R(et), [et]), es = (0, t.useMemo)(() => {
+        } = q, ea = (0, t.useMemo)(() => (0, u.T)(u.K, q.sections), [q.sections]), et = (0, t.useMemo)(() => [...q.events ?? []].sort((e, a) => (e.displayOrder ?? 0) - (a.displayOrder ?? 0)), [q.events]), el = (0, t.useMemo)(() => R(et), [et]), es = (0, t.useMemo)(() => {
             var e;
-            return et.find(e => "NIKAH" === e.type) ? ? et.find(e => "WEDDING" === e.type) ? ? et.find(e => (0, W.Y)(e)) ? ? et.find(e => "CUSTOM" === e.type && "nikah" === S(e)) ? ? (null == (e = R(et)) ? void 0 : e.event) ? ? et[0]
-        }, [et]), er = (0, t.useMemo)(() => [...q.photos ? ? []].sort((e, a) => (e.displayOrder ? ? 0) - (a.displayOrder ? ? 0)), [q.photos]), en = (0, t.useMemo)(() => {
+            return et.find(e => "NIKAH" === e.type) ?? et.find(e => "WEDDING" === e.type) ?? et.find(e => (0, W.Y)(e)) ?? et.find(e => "CUSTOM" === e.type && "nikah" === S(e)) ?? (null == (e = R(et)) ? void 0 : e.event) ?? et[0]
+        }, [et]), er = (0, t.useMemo)(() => [...q.photos ?? []].sort((e, a) => (e.displayOrder ?? 0) - (a.displayOrder ?? 0)), [q.photos]), en = (0, t.useMemo)(() => {
             var e;
             return (0, f.x)((null == (e = q.sections) ? void 0 : e.length) ? q.sections : o.n).filter(e => e.visible).sort((e, a) => e.order - a.order)
         }, [q.sections]), eo = (0, g.useGifts)(), ed = (null == (v = ee.partnerOneName) ? void 0 : v.trim()) || G("hero.partnerOne"), ec = (null == (_ = ee.partnerTwoName) ? void 0 : _.trim()) || G("hero.partnerTwo"), eu = J(ee.logoUrl), eh = q.story, em = en.filter(e => (e => {
@@ -4179,7 +4179,7 @@
             }
         })(e.kind)), ep = em.findIndex(e => "hero" === e.kind), ef = ep >= 0 && (null == ($ = em[ep + 1]) ? void 0 : $.kind) === "events", eg = em.some(e => "hashtag" === e.kind), ey = em.some(e => "footer" === e.kind), ev = en.some(e => "family" === e.kind) ? (0, w.v)(q.family) : void 0, ex = es ? [es.date ? K.date(es.date, {
             weekday: "long"
-        }) : "", (null == (C = es.city) ? void 0 : C.trim()) ? ? ""].filter(Boolean).join(" · ") : "", ej = {
+        }) : "", (null == (C = es.city) ? void 0 : C.trim()) ?? ""].filter(Boolean).join(" · ") : "", ej = {
             date: (null == es ? void 0 : es.date) ? K.date(es.date, {
                 weekday: "long"
             }) : "",
@@ -4359,7 +4359,7 @@
                             top: H.ivory,
                             bottom: H.ivory,
                             node: (0, a.jsx)(ab, {
-                                tag: (null == (l = q.hashtag) ? void 0 : l.tag) ? ? "",
+                                tag: (null == (l = q.hashtag) ? void 0 : l.tag) ?? "",
                                 caption: null == (s = q.hashtag) ? void 0 : s.caption,
                                 logo: eu,
                                 emblem: ea.emblem
@@ -4521,10 +4521,10 @@
                 })), !ey && q.watermarkEnabled ? (0, a.jsx)("div", {
                     className: e$.default.coda,
                     style: {
-                        background: (null == (F = eJ.at(-1)) ? void 0 : F.bottom) ? ? H.ivory
+                        background: (null == (F = eJ.at(-1)) ? void 0 : F.bottom) ?? H.ivory
                     },
                     children: (0, a.jsx)(e0, {
-                        color: (0, k.c)((null == (L = eJ.at(-1)) ? void 0 : L.bottom) ? ? H.ivory) ? H.muted : (0, k.L)(H.light, .6)
+                        color: (0, k.c)((null == (L = eJ.at(-1)) ? void 0 : L.bottom) ?? H.ivory) ? H.muted : (0, k.L)(H.light, .6)
                     })
                 }) : null]
             }), eq && "leaving" !== eN ? null : (0, a.jsx)(aE, {
@@ -5225,7 +5225,7 @@
 
     function R() {
         if (F) return F;
-        let e = window.AudioContext ? ? window.webkitAudioContext;
+        let e = window.AudioContext ?? window.webkitAudioContext;
         return e ? F = new e : null
     }
 
@@ -5245,7 +5245,7 @@
             ])) {
             let c = e.createOscillator(),
                 u = e.createGain();
-            c.type = "sine", c.frequency.value = s * n, c.detune.value = (Math.random() - .5) * 6, u.gain.setValueAtTime(1e-4, l), u.gain.exponentialRampToValueAtTime(o * r, l + .006), u.gain.exponentialRampToValueAtTime(1e-4, l + d * (t ? 1 : .8)), c.connect(u).connect(i ? ? a), c.start(l), c.stop(l + d + .2)
+            c.type = "sine", c.frequency.value = s * n, c.detune.value = (Math.random() - .5) * 6, u.gain.setValueAtTime(1e-4, l), u.gain.exponentialRampToValueAtTime(o * r, l + .006), u.gain.exponentialRampToValueAtTime(1e-4, l + d * (t ? 1 : .8)), c.connect(u).connect(i ?? a), c.start(l), c.stop(l + d + .2)
         }
     }
     async function M() {
@@ -5373,7 +5373,7 @@
                 className: `${U.default.chapterHeading} rv`,
                 style: {
                     fontFamily: c,
-                    fontWeight: o.headingWeight ? ? 400,
+                    fontWeight: o.headingWeight ?? 400,
                     color: r ? d.light : d.ink
                 },
                 children: s
@@ -5475,7 +5475,7 @@
             behavior: a ? "auto" : "smooth",
             block: "start"
         });
-        let l = t.querySelector("h2, h3") ? ? t;
+        let l = t.querySelector("h2, h3") ?? t;
         l.hasAttribute("tabindex") || l.setAttribute("tabindex", "-1"), l.focus({
             preventScroll: !0
         })
@@ -5574,7 +5574,7 @@
                         className: U.default.closingTitle,
                         style: {
                             fontFamily: F,
-                            fontWeight: k.headingWeight ? ? 400,
+                            fontWeight: k.headingWeight ?? 400,
                             color: _.ink
                         },
                         children: b("closing.title")
@@ -5854,28 +5854,28 @@
                 key: "days",
                 value: null == b ? void 0 : b.days,
                 label: o("days", {
-                    count: (null == b ? void 0 : b.days) ? ? 0
+                    count: (null == b ? void 0 : b.days) ?? 0
                 })
             }, {
                 key: "hours",
                 value: null == b ? void 0 : b.hours,
                 label: o("hours", {
-                    count: (null == b ? void 0 : b.hours) ? ? 0
+                    count: (null == b ? void 0 : b.hours) ?? 0
                 })
             }, {
                 key: "minutes",
                 value: null == b ? void 0 : b.minutes,
                 label: o("minutes", {
-                    count: (null == b ? void 0 : b.minutes) ? ? 0
+                    count: (null == b ? void 0 : b.minutes) ?? 0
                 })
             }, {
                 key: "seconds",
                 value: null == b ? void 0 : b.seconds,
                 label: o("seconds", {
-                    count: (null == b ? void 0 : b.seconds) ? ? 0
+                    count: (null == b ? void 0 : b.seconds) ?? 0
                 })
             }],
-            k = j ? -1 : ((null == b ? void 0 : b.seconds) ? ? 0) % 9,
+            k = j ? -1 : ((null == b ? void 0 : b.seconds) ?? 0) % 9,
             _ = s.date ? d.date(s.date, {
                 weekday: "long",
                 day: "numeric",
@@ -5925,7 +5925,7 @@
                     className: `${U.default.chapterHeading} rv`,
                     style: {
                         fontFamily: m,
-                        fontWeight: u.headingWeight ? ? 400,
+                        fontWeight: u.headingWeight ?? 400,
                         color: h.light
                     },
                     children: n(j ? "doneTitle" : "title")
@@ -6371,7 +6371,7 @@
                     className: `${U.default.heroNames} ${U.default.rise}`,
                     style: {
                         fontFamily: y,
-                        fontWeight: p.headingWeight ? ? 400,
+                        fontWeight: p.headingWeight ?? 400,
                         color: f.light
                     },
                     children: [(0, t.jsx)("span", {
@@ -6442,16 +6442,16 @@
             theme: x,
             tones: j,
             display: b
-        } = X(), [N, k] = (0, W.i)(.12), [_, F] = (0, W.i)(.05), L = "none" === o ? null : B.P[o], S = (0, n.M)(c), T = (0, eS.u)(c, d), O = (null == T ? void 0 : T.filter(e => e.grandparents.length > 0)) ? ? [], R = T ? (null == c || null == (a = c.blessings) ? void 0 : a.trim()) ? ? "" : "", q = (null == (l = d.headline) ? void 0 : l.trim()) || p("invitation.hostsDefault"), M = (null == (s = d.shortMessage) ? void 0 : s.trim()) || p("invitation.requestDefault"), E = (null == u ? void 0 : u.date) ? g.date(u.date, {
+        } = X(), [N, k] = (0, W.i)(.12), [_, F] = (0, W.i)(.05), L = "none" === o ? null : B.P[o], S = (0, n.M)(c), T = (0, eS.u)(c, d), O = (null == T ? void 0 : T.filter(e => e.grandparents.length > 0)) ?? [], R = T ? (null == c || null == (a = c.blessings) ? void 0 : a.trim()) ?? "" : "", q = (null == (l = d.headline) ? void 0 : l.trim()) || p("invitation.hostsDefault"), M = (null == (s = d.shortMessage) ? void 0 : s.trim()) || p("invitation.requestDefault"), E = (null == u ? void 0 : u.date) ? g.date(u.date, {
             weekday: "long",
             day: "numeric",
             month: "long",
             year: "numeric"
         }) : "", D = u ? g.eventTimeOf(u, {
             viewerTimezone: y
-        }) : "", H = u ? (0, eF.A)(u) : "", A = (null == (r = d.coverPhotoUrl) ? void 0 : r.trim()) ? ? "", P = Math.min(1, 9 / Math.max(h.length, m.length, 1)), I = {
+        }) : "", H = u ? (0, eF.A)(u) : "", A = (null == (r = d.coverPhotoUrl) ? void 0 : r.trim()) ?? "", P = Math.min(1, 9 / Math.max(h.length, m.length, 1)), I = {
             fontFamily: b,
-            fontWeight: x.headingWeight ? ? 400,
+            fontWeight: x.headingWeight ?? 400,
             color: j.sindoor
         };
         return (0, t.jsx)("section", {
@@ -6766,7 +6766,7 @@
             slug: s,
             rsvpSettings: n,
             isPreview: g,
-            initialGuestName: (null == (a = y.guest) ? void 0 : a.displayName) ? ? "",
+            initialGuestName: (null == (a = y.guest) ? void 0 : a.displayName) ?? "",
             buildExtraPayload: e => {
                 let a = "YES" === e.attendanceStatus || "MAYBE" === e.attendanceStatus,
                     t = [...N, e.mealPreference.trim()].filter(Boolean).join("; ");
@@ -6900,7 +6900,7 @@
                         }), (0, t.jsx)("h3", {
                             style: {
                                 fontFamily: p,
-                                fontWeight: c.headingWeight ? ? 400,
+                                fontWeight: c.headingWeight ?? 400,
                                 color: u.sindoor
                             },
                             children: o("doneTitle")
@@ -7049,7 +7049,7 @@
                                     "aria-label": o("attendee", {
                                         number: a + 1
                                     }),
-                                    value: y.attendeeNames[a] ? ? "",
+                                    value: y.attendeeNames[a] ?? "",
                                     onChange: e => y.setAttendeeName(a, e.target.value),
                                     placeholder: o("attendee", {
                                         number: a + 1
@@ -7417,7 +7417,7 @@
                     className: U.default.eventName,
                     style: {
                         fontFamily: m,
-                        fontWeight: u.headingWeight ? ? 400,
+                        fontWeight: u.headingWeight ?? 400,
                         color: x
                     },
                     children: a.name
@@ -7731,7 +7731,7 @@
                             className: U.default.nightTitle,
                             style: {
                                 fontFamily: o,
-                                fontWeight: r.headingWeight ? ? 400,
+                                fontWeight: r.headingWeight ?? 400,
                                 color: n.light
                             },
                             children: v.title
@@ -7944,7 +7944,7 @@
                     className: U.default.plaqueNames,
                     style: {
                         fontFamily: x,
-                        fontWeight: y.headingWeight ? ? 400,
+                        fontWeight: y.headingWeight ?? 400,
                         color: v.sindoor
                     },
                     children: [(0, t.jsx)("span", {
@@ -8225,17 +8225,17 @@
                 couple: es
             } = P,
             ei = (0, l.useMemo)(() => (0, B.d)(P.sections), [P.sections]),
-            en = (0, l.useMemo)(() => (0, B.T)(P.events ? ? []), [P.events]),
+            en = (0, l.useMemo)(() => (0, B.T)(P.events ?? []), [P.events]),
             eo = (0, l.useMemo)(() => (0, B.v)(en), [en]),
             ed = (0, l.useMemo)(() => (0, B.A)(en), [en]),
             ec = (0, l.useMemo)(() => (0, B.$)(en), [en]),
             eu = (0, l.useMemo)(() => (0, B.N)(en), [en]),
             eh = (0, l.useMemo)(() => (0, B.f)(P.story), [P.story]),
-            em = (0, l.useMemo)(() => [...P.photos ? ? []].sort((e, a) => (e.displayOrder ? ? 0) - (a.displayOrder ? ? 0)), [P.photos]),
+            em = (0, l.useMemo)(() => [...P.photos ?? []].sort((e, a) => (e.displayOrder ?? 0) - (a.displayOrder ?? 0)), [P.photos]),
             ep = (null == (a = es.partnerOneName) ? void 0 : a.trim()) || et("hero.partnerOne"),
             ef = (null == (F = es.partnerTwoName) ? void 0 : F.trim()) || et("hero.partnerTwo"),
             ey = `${ep} & ${ef}`,
-            ev = ei.invocation ? ? B.n,
+            ev = ei.invocation ?? B.n,
             ex = (null == ec ? void 0 : ec.date) || (null == eu ? void 0 : eu.event.date) || "",
             ej = ex ? el.date(ex, {
                 weekday: "long",
@@ -8243,7 +8243,7 @@
                 month: "long",
                 year: "numeric"
             }) : "",
-            eb = ec ? [ec.city, ec.country].map(e => null == e ? void 0 : e.trim()).filter(Boolean)[0] ? ? "" : "",
+            eb = ec ? [ec.city, ec.country].map(e => null == e ? void 0 : e.trim()).filter(Boolean)[0] ?? "" : "",
             ew = e => (0, d.v)(P.sections, e),
             eN = ew("hero"),
             ek = ew("family") && (0, n.i)(P.family),
@@ -8313,7 +8313,7 @@
             } : null,
             aa = (0, l.useCallback)(() => {
                 requestAnimationFrame(() => {
-                    let e = document.getElementById("devi-hero-title") ? ? document.querySelector("#devi-invitation h2, main h2");
+                    let e = document.getElementById("devi-hero-title") ?? document.querySelector("#devi-invitation h2, main h2");
                     e && (e.hasAttribute("tabindex") || e.setAttribute("tabindex", "-1"), e.focus({
                         preventScroll: !0
                     }))
@@ -8453,7 +8453,7 @@
                         bottom: J.burgundyDeep,
                         arrive: "self",
                         node: (0, t.jsx)(eO, {
-                            verse: ei.verse ? ? "mangala",
+                            verse: ei.verse ?? "mangala",
                             couple: es,
                             family: ek ? P.family : void 0,
                             ceremony: ec,
@@ -8555,7 +8555,7 @@
                             one: ep,
                             two: ef,
                             dateLabel: ej,
-                            thankYou: ei.thankYou ? ? et("closing.thankYou"),
+                            thankYou: ei.thankYou ?? et("closing.thankYou"),
                             events: en,
                             ceremony: ec,
                             hashtag: eR ? P.hashtag : void 0,
@@ -9114,11 +9114,11 @@
             eyebrow: r,
             title: i,
             ink: n = {}
-        } = e, o = (0, g.r)("invite.gallery"), d = r ? ? o("eyebrow"), c = i ? ? o("title"), {
+        } = e, o = (0, g.r)("invite.gallery"), d = r ?? o("eyebrow"), c = i ?? o("title"), {
             palette: u,
             headingFont: h,
             headingWeight: m
-        } = s, f = (0, t.useId)(), y = (0, t.useMemo)(() => [...l].sort((e, a) => (e.displayOrder ? ? 0) - (a.displayOrder ? ? 0)), [l]), v = y.slice(0, 12), x = v.length >= 6, j = (0, t.useRef)(null), [b, w] = (0, t.useState)(0), N = e => {
+        } = s, f = (0, t.useId)(), y = (0, t.useMemo)(() => [...l].sort((e, a) => (e.displayOrder ?? 0) - (a.displayOrder ?? 0)), [l]), v = y.slice(0, 12), x = v.length >= 6, j = (0, t.useRef)(null), [b, w] = (0, t.useState)(0), N = e => {
             var a;
             w(e), null == (a = j.current) || a.showModal()
         }, k = (0, t.useCallback)(e => w(a => (a + e + y.length) % y.length), [y.length]), _ = y[b];
@@ -9160,7 +9160,7 @@
                     children: [d ? (0, a.jsx)("p", {
                         className: O.default.galleryEyebrow,
                         style: {
-                            color: n.eyebrow ? ? u.accent
+                            color: n.eyebrow ?? u.accent
                         },
                         children: d
                     }) : null, (0, a.jsx)("h2", {
@@ -9168,8 +9168,8 @@
                         className: O.default.galleryHeading,
                         style: {
                             fontFamily: h,
-                            fontWeight: m ? ? 600,
-                            color: n.title ? ? u.primary
+                            fontWeight: m ?? 600,
+                            color: n.title ?? u.primary
                         },
                         children: c
                     })]
@@ -9241,7 +9241,7 @@
             }), y.length >= 2 ? (0, a.jsx)(R, {
                 photos: y,
                 theme: s,
-                captionColor: n.caption ? ? u.muted,
+                captionColor: n.caption ?? u.muted,
                 onOpen: N
             }) : null]
         })
@@ -9405,7 +9405,7 @@
             paper: r,
             theme: i,
             children: n
-        } = e, o = r ? ? i.palette.background, d = t ? t.width ? ? "clamp(56px, 11vw, 132px)" : "0px", c = l ? l.height ? ? "clamp(56px, 6.5vw, 104px)" : "0px", u = t ? `calc(${d} - 20px)` : "0px", h = s ? s.height ? ? "clamp(124px, 14vw, 208px)" : "0px", m = (0, a.jsx)(A, {
+        } = e, o = r ?? i.palette.background, d = t ? t.width ?? "clamp(56px, 11vw, 132px)" : "0px", c = l ? l.height ?? "clamp(56px, 6.5vw, 104px)" : "0px", u = t ? `calc(${d} - 20px)` : "0px", h = s ? s.height ?? "clamp(124px, 14vw, 208px)" : "0px", m = (0, a.jsx)(A, {
             strip: t,
             cornice: l,
             terrace: s,
@@ -9444,7 +9444,7 @@
             corniceH: i,
             terraceH: n,
             bandInset: o
-        } = e, d = (null == t ? void 0 : t.mirrorRight) ? ? !0;
+        } = e, d = (null == t ? void 0 : t.mirrorRight) ?? !0;
         return (0, a.jsxs)("div", {
             "aria-hidden": !0,
             className: "pointer-events-none absolute inset-0 select-none",
@@ -9522,7 +9522,7 @@
             className: o = "",
             id: d,
             children: c
-        } = e, u = r ? ? i.palette.background, h = t ? {
+        } = e, u = r ?? i.palette.background, h = t ? {
             backgroundImage: `url(${t})`,
             backgroundRepeat: "repeat",
             backgroundSize: l ? `${l}px` : void 0
@@ -9547,7 +9547,7 @@
                     loading: "lazy",
                     className: "absolute inset-0 h-full w-full object-cover",
                     style: {
-                        objectPosition: s.position ? ? "center"
+                        objectPosition: s.position ?? "center"
                     }
                 })]
             }) : null, n.map((e, t) => {
@@ -9560,7 +9560,7 @@
                     decoding: "async",
                     loading: "lazy",
                     className: "pointer-events-none block max-w-none select-none",
-                    style: (s = e.inset ? ? "0px", r = (null == (l = e.corner) ? void 0 : l.startsWith("bottom")) ? {
+                    style: (s = e.inset ?? "0px", r = (null == (l = e.corner) ? void 0 : l.startsWith("bottom")) ? {
                         bottom: s
                     } : {
                         top: s
@@ -9577,7 +9577,7 @@
                         position: "absolute",
                         width: e.width,
                         height: "auto",
-                        opacity: e.opacity ? ? 1,
+                        opacity: e.opacity ?? 1,
                         ...r,
                         ...i
                     })
@@ -9604,10 +9604,10 @@
         } = (0, r.f)({
             target: m,
             offset: ["start end", "end start"]
-        }), [g, y] = l.wideSize, [v, x] = l.portraitSize, j = p ? 0 : l.drift ? ? 0, b = {
+        }), [g, y] = l.wideSize, [v, x] = l.portraitSize, j = p ? 0 : l.drift ?? 0, b = {
             "--scene-portrait": `${v} / ${x}`,
             "--scene-wide": `${g} / ${y}`,
-            background: d ? ? c.palette.background
+            background: d ?? c.palette.background
         }, w = Math.abs(j);
         return (0, a.jsxs)("div", {
             ref: m,
@@ -9710,7 +9710,7 @@
                 className: "block max-w-none",
                 style: {
                     transform: g,
-                    width: o ? ? "auto",
+                    width: o ?? "auto",
                     height: o ? "auto" : d
                 }
             })
@@ -9746,22 +9746,22 @@
   to   { opacity: 0; transform: scale(var(--pan-exit-scale, 1)); }
 }`,
         Y = "contain 0% contain 100%",
-        Z = e => e.id ? ? e.src;
+        Z = e => e.id ?? e.src;
 
     function Q(e, a, t, l) {
         let s = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : {},
             r = arguments.length > 5 && void 0 !== arguments[5] ? arguments[5] : new Set,
-            i = t[Z(e)] ? ? 0;
+            i = t[Z(e)] ?? 0;
         if (e.attachTo && !r.has(e.attachTo)) {
             let n = a.find(a => Z(a) === e.attachTo),
-                o = t[e.attachTo] ? ? 0;
+                o = t[e.attachTo] ?? 0;
             if (n && o && i) {
-                let [d, c] = Q(n, a, t, l, s, new Set(r).add(Z(e))), u = o - i + (e.attachOffsetVh ? ? 0) / 100 * l;
+                let [d, c] = Q(n, a, t, l, s, new Set(r).add(Z(e))), u = o - i + (e.attachOffsetVh ?? 0) / 100 * l;
                 return [d + u, c + u]
             }
         }
-        let n = e.fromVh / 100 * l + (s[Z(e)] ? ? 0);
-        return "drift" === e.exit ? [n, (e.toVh ? ? 0) / 100 * l] : [n, "park" === e.exit ? 1.02 * l - i : -(i + .12 * l)]
+        let n = e.fromVh / 100 * l + (s[Z(e)] ?? 0);
+        return "drift" === e.exit ? [n, (e.toVh ?? 0) / 100 * l] : [n, "park" === e.exit ? 1.02 * l - i : -(i + .12 * l)]
     }
 
     function X(e) {
@@ -9811,7 +9811,7 @@
         } = (0, r.f)({
             target: w,
             offset: ["start start", "end end"]
-        }), O = (0, z.f)(0), R = (0, G.f)(Y), q = L > 0 && L < 768, M = q ? d ? ? o : o, E = (0, t.useMemo)(() => q ? n.map(e => e.mobile ? { ...e,
+        }), O = (0, z.f)(0), R = (0, G.f)(Y), q = L > 0 && L < 768, M = q ? d ?? o : o, E = (0, t.useMemo)(() => q ? n.map(e => e.mobile ? { ...e,
             ...e.mobile
         } : e) : n, [n, q]), D = (0, t.useMemo)(() => q ? E.filter(e => !e.mobileHidden) : E, [E, q]), H = (0, t.useMemo)(() => (function(e, a, t) {
             let l = {};
@@ -9830,7 +9830,7 @@
                     }
                     return l
                 }(s, e));
-                l[n] = Math.min(l[n] ? ? 0, i)
+                l[n] = Math.min(l[n] ?? 0, i)
             }
             return l
         })(E, _, F), [E, _, F]), A = (0, i.f)(T, [0, 1], [`${p}vh`, `${f}vh`]), P = R ? {
@@ -9844,7 +9844,7 @@
         } : {
             y: A,
             zIndex: m
-        }, I = q ? v ? ? y : y, B = (null == I ? void 0 : I.from) ? ? 0, U = (null == I ? void 0 : I.to) ? ? 1, X = (null == y ? void 0 : y.scale) ? ? 1, ea = (0, i.f)(T, [B, U], [1, 0]), et = (0, i.f)(T, [B, U], [1, X]), el = y ? R ? {
+        }, I = q ? v ?? y : y, B = (null == I ? void 0 : I.from) ?? 0, U = (null == I ? void 0 : I.to) ?? 1, X = (null == y ? void 0 : y.scale) ?? 1, ea = (0, i.f)(T, [B, U], [1, 0]), et = (0, i.f)(T, [B, U], [1, X]), el = y ? R ? {
             willChange: "transform, opacity",
             "--pan-exit-scale": X,
             animation: "pan-stage-exit linear both",
@@ -9858,7 +9858,7 @@
             ref: w,
             className: "relative isolate",
             style: {
-                background: c ? ? b.palette.background
+                background: c ?? b.palette.background
             },
             children: (0, a.jsxs)("div", {
                 ref: C,
@@ -9882,7 +9882,7 @@
                     style: {
                         zIndex: Math.max(m, ...D.map(e => e.z)) + 1
                     },
-                    className: g ? ? "absolute inset-x-0 top-1/4 px-6 text-center",
+                    className: g ?? "absolute inset-x-0 top-1/4 px-6 text-center",
                     children: h
                 }) : null]
             })
@@ -9891,7 +9891,7 @@
             className: "relative isolate",
             style: {
                 height: `${M}vh`,
-                background: c ? ? b.palette.background,
+                background: c ?? b.palette.background,
                 ...R ? {
                     viewTimelineName: V,
                     viewTimelineAxis: "block"
@@ -9927,7 +9927,7 @@
                     children: x
                 }) : null, h ? (0, a.jsx)(l.f.div, {
                     style: P,
-                    className: g ? ? "absolute inset-x-0 top-1/4 px-6 text-center",
+                    className: g ?? "absolute inset-x-0 top-1/4 px-6 text-center",
                     children: el ? (0, a.jsx)(l.f.div, {
                         style: el,
                         children: h
@@ -10037,7 +10037,7 @@
             src: r.src,
             srcSet: r.srcSet,
             sizes: r.srcSet ? (s = r).coverHeightVh ? "100vw" : `${s.maxWidthVw??92}vw` : void 0,
-            alt: r.alt ? ? "",
+            alt: r.alt ?? "",
             "aria-hidden": !r.alt,
             draggable: !1,
             "data-layer": y,
@@ -10448,7 +10448,7 @@
                                         style: {
                                             fontSize: ei,
                                             lineHeight: 1.06,
-                                            fontWeight: T.headingWeight ? ? 700,
+                                            fontWeight: T.headingWeight ?? 700,
                                             fontFamily: T.headingFont,
                                             color: "#ffffff",
                                             textShadow: "0 2px 24px rgba(0,40,80,.35)"
@@ -10463,7 +10463,7 @@
                                         style: {
                                             fontSize: ei,
                                             lineHeight: 1.06,
-                                            fontWeight: T.headingWeight ? ? 700,
+                                            fontWeight: T.headingWeight ?? 700,
                                             fontFamily: T.headingFont,
                                             color: "#ffffff",
                                             textShadow: "0 2px 24px rgba(0,40,80,.35)"
@@ -10821,7 +10821,7 @@
                 className: D.default.chapterHeading,
                 style: {
                     fontFamily: o.headingFont,
-                    fontWeight: o.headingWeight ? ? 500,
+                    fontWeight: o.headingWeight ?? 500,
                     color: r ? d.light : d.ink
                 },
                 children: s
@@ -11024,7 +11024,7 @@
                         className: D.default.sceneName,
                         style: {
                             fontFamily: u.headingFont,
-                            fontWeight: u.headingWeight ? ? 500,
+                            fontWeight: u.headingWeight ?? 500,
                             color: w
                         },
                         children: y
@@ -11210,7 +11210,7 @@
                     className: `${D.default.closingTitle} rv`,
                     style: {
                         fontFamily: j.headingFont,
-                        fontWeight: j.headingWeight ? ? 500,
+                        fontWeight: j.headingWeight ?? 500,
                         color: b.light
                     },
                     children: v("closing.title")
@@ -11374,7 +11374,7 @@
         } = e, i = (0, l.r)("inviteThemes.kashi-vishwanath.countdown"), n = (0, l.r)("invite.countdown"), o = (0, j.f)(), d = (0, R.f)(), {
             theme: c,
             tones: u
-        } = J(), h = (0, et.f)(r.getTime()), m = (0, t.useRef)(null), p = (0, E.d)(m), [f, g] = (0, E.i)(.2), y = (null == h ? void 0 : h.done) ? ? !1, v = s.date ? o.date(s.date, {
+        } = J(), h = (0, et.f)(r.getTime()), m = (0, t.useRef)(null), p = (0, E.d)(m), [f, g] = (0, E.i)(.2), y = (null == h ? void 0 : h.done) ?? !1, v = s.date ? o.date(s.date, {
             weekday: "long"
         }) : "", x = o.eventTimeOf(s, {
             viewerTimezone: d
@@ -11382,25 +11382,25 @@
             key: "days",
             value: null == h ? void 0 : h.days,
             label: n("days", {
-                count: (null == h ? void 0 : h.days) ? ? 0
+                count: (null == h ? void 0 : h.days) ?? 0
             })
         }, {
             key: "hours",
             value: null == h ? void 0 : h.hours,
             label: n("hours", {
-                count: (null == h ? void 0 : h.hours) ? ? 0
+                count: (null == h ? void 0 : h.hours) ?? 0
             })
         }, {
             key: "minutes",
             value: null == h ? void 0 : h.minutes,
             label: n("minutes", {
-                count: (null == h ? void 0 : h.minutes) ? ? 0
+                count: (null == h ? void 0 : h.minutes) ?? 0
             })
         }, {
             key: "seconds",
             value: null == h ? void 0 : h.seconds,
             label: n("seconds", {
-                count: (null == h ? void 0 : h.seconds) ? ? 0
+                count: (null == h ? void 0 : h.seconds) ?? 0
             })
         }];
         return (0, a.jsxs)("section", {
@@ -11443,7 +11443,7 @@
                     className: `${D.default.chapterHeading} rv`,
                     style: {
                         fontFamily: c.headingFont,
-                        fontWeight: c.headingWeight ? ? 500,
+                        fontWeight: c.headingWeight ?? 500,
                         color: u.light
                     },
                     children: i(y ? "doneTitle" : "title")
@@ -11610,7 +11610,7 @@
                     className: D.default.gateNames,
                     style: {
                         fontFamily: p.headingFont,
-                        fontWeight: p.headingWeight ? ? 500,
+                        fontWeight: p.headingWeight ?? 500,
                         color: f.light
                     },
                     children: [(0, a.jsx)("span", {
@@ -11925,7 +11925,7 @@
             reduce: f
         } = J(), g = (0, t.useRef)(null), y = (0, E.d)(g, "0px"), v = Math.max(s.length, r.length, 1), x = {
             fontFamily: m.headingFont,
-            fontWeight: m.headingWeight ? ? 500,
+            fontWeight: m.headingWeight ?? 500,
             color: p.dark
         };
         return (0, a.jsx)("section", {
@@ -12222,9 +12222,9 @@
             viewerTimezone: x
         }) : "", M = c ? (0, S.A)(c) : "", H = Math.min(1, 9 / Math.max(u.length, h.length, 1)), P = {
             fontFamily: w.headingFont,
-            fontWeight: w.headingWeight ? ? 500,
+            fontWeight: w.headingWeight ?? 500,
             color: _.vermilion
-        }, I = (null == F ? void 0 : F.filter(e => e.grandparents.length > 0)) ? ? [], G = F ? (null == d || null == (i = d.blessings) ? void 0 : i.trim()) ? ? "" : "", V = !!p && ("hi" !== y || p !== o.N.defaults.invocation);
+        }, I = (null == F ? void 0 : F.filter(e => e.grandparents.length > 0)) ?? [], G = F ? (null == d || null == (i = d.blessings) ? void 0 : i.trim()) ?? "" : "", V = !!p && ("hi" !== y || p !== o.N.defaults.invocation);
         return (0, a.jsxs)("section", {
             id: "kashi-invitation",
             "aria-labelledby": "kashi-invitation-title",
@@ -12571,14 +12571,14 @@
                                 className: D.default.momentHashtag,
                                 style: {
                                     fontFamily: o.headingFont,
-                                    fontWeight: o.headingWeight ? ? 500,
+                                    fontWeight: o.headingWeight ?? 500,
                                     "--tag-len": i.length + 1
                                 },
                                 children: ["#", i]
                             }) : (0, a.jsx)("span", {
                                 style: {
                                     fontFamily: o.headingFont,
-                                    fontWeight: o.headingWeight ? ? 500
+                                    fontWeight: o.headingWeight ?? 500
                                 },
                                 children: h || "&"
                             })]
@@ -12675,7 +12675,7 @@
                         className: p ? "sr-only" : D.default.chapterHeading,
                         style: {
                             fontFamily: c.headingFont,
-                            fontWeight: c.headingWeight ? ? 500,
+                            fontWeight: c.headingWeight ?? 500,
                             color: u.vermilion
                         },
                         children: n("title")
@@ -12833,7 +12833,7 @@
                     className: D.default.milestoneTitle,
                     style: {
                         fontFamily: i.headingFont,
-                        fontWeight: i.headingWeight ? ? 500,
+                        fontWeight: i.headingWeight ?? 500,
                         color: n.vermilion
                     },
                     children: t.title
@@ -12908,11 +12908,11 @@
             } = q,
             ei = (0, t.useMemo)(() => (0, M.S)(q.sections), [q.sections]),
             en = (0, t.useMemo)(() => (0, o.T)(o.N, q.sections), [q.sections]),
-            eo = (0, t.useMemo)(() => (0, M.T)(q.events ? ? []), [q.events]),
+            eo = (0, t.useMemo)(() => (0, M.T)(q.events ?? []), [q.events]),
             ed = (0, t.useMemo)(() => (0, M.$)(eo), [eo]),
             ec = (0, t.useMemo)(() => (0, M.N)(eo), [eo]),
             eu = (0, t.useMemo)(() => (0, M.f)(q.story), [q.story]),
-            eh = (0, t.useMemo)(() => [...q.photos ? ? []].sort((e, a) => (e.displayOrder ? ? 0) - (a.displayOrder ? ? 0)), [q.photos]),
+            eh = (0, t.useMemo)(() => [...q.photos ?? []].sort((e, a) => (e.displayOrder ?? 0) - (a.displayOrder ?? 0)), [q.photos]),
             ep = (null == (u = es.partnerOneName) ? void 0 : u.trim()) || ee("hero.partnerOne"),
             ef = (null == (y = es.partnerTwoName) ? void 0 : y.trim()) || ee("hero.partnerTwo"),
             ey = `${ep} & ${ef}`,
@@ -12920,7 +12920,7 @@
             ex = ev ? et.date(ev, {
                 weekday: "long"
             }) : "",
-            eb = ed ? [ed.city, ed.country].map(e => null == e ? void 0 : e.trim()).filter(Boolean)[0] ? ? "" : "",
+            eb = ed ? [ed.city, ed.country].map(e => null == e ? void 0 : e.trim()).filter(Boolean)[0] ?? "" : "",
             ew = e => (0, i.v)(q.sections, e),
             eN = ew("hero"),
             ek = ew("family") && (0, s.i)(q.family),
@@ -13071,7 +13071,7 @@
                                 one: ep,
                                 two: ef,
                                 greeting: en.greeting,
-                                blessing: ei.blessing ? ? ee("hero.blessing"),
+                                blessing: ei.blessing ?? ee("hero.blessing"),
                                 dateLabel: ex,
                                 placeLabel: eb,
                                 play: !eG || "leaving" === eI,
@@ -13119,7 +13119,7 @@
                         node: (0, a.jsx)(eF, {
                             one: ep,
                             two: ef,
-                            cover: (null == (C = es.coverPhotoUrl) ? void 0 : C.trim()) ? ? "",
+                            cover: (null == (C = es.coverPhotoUrl) ? void 0 : C.trim()) ?? "",
                             hashtag: eq ? null == (L = q.hashtag) || null == (F = L.tag) ? void 0 : F.trim() : void 0
                         })
                     }, eL && {
@@ -13190,7 +13190,7 @@
                             one: ep,
                             two: ef,
                             dateLabel: ex,
-                            thankYou: ei.thankYou ? ? ee("closing.thankYou"),
+                            thankYou: ei.thankYou ?? ee("closing.thankYou"),
                             events: eo,
                             ceremony: ed,
                             hashtag: eq ? q.hashtag : void 0,
@@ -13335,7 +13335,7 @@
         let o = (0, a.useCallback)(() => {
             var a;
             let s = null == (a = i(e)) ? void 0 : a.getItem(t);
-            return "1" === s || "0" === s ? "1" === s : r.get(`${e}:${t}`) ? ? l
+            return "1" === s || "0" === s ? "1" === s : r.get(`${e}:${t}`) ?? l
         }, [e, t, l]);
         return [(0, a.useSyncExternalStore)(n, o, () => l), (0, a.useCallback)(a => {
             r.set(`${e}:${t}`, a);
@@ -13855,7 +13855,7 @@
             headingWeight: p
         } = n, f = (0, F.f)(l.getTime()), g = (0, C.f)(), y = e => String(e).padStart(2, "0"), j = {
             fontFamily: m,
-            fontWeight: p ? ? 600,
+            fontWeight: p ?? 600,
             color: h.primary
         }, N = [];
         if (r) {
@@ -13999,7 +13999,7 @@
                                 className: L.default.clockValue,
                                 style: {
                                     fontFamily: m,
-                                    fontWeight: p ? ? 600,
+                                    fontWeight: p ?? 600,
                                     color: h.primary
                                 },
                                 children: e.value
@@ -14090,7 +14090,7 @@
                         className: L.default.familyHeading,
                         style: {
                             fontFamily: d,
-                            fontWeight: c ? ? 600,
+                            fontWeight: c ?? 600,
                             color: o.text
                         },
                         children: n("title")
@@ -14163,7 +14163,7 @@
             headingWeight: y
         } = d, x = {
             fontFamily: g,
-            fontWeight: y ? ? 600,
+            fontWeight: y ?? 600,
             color: (0, b.L)(f.primary, .85)
         }, j = Math.min(1, 8 / Math.max(t.length, l.length, 1));
         return (0, a.jsxs)("footer", {
@@ -14199,7 +14199,7 @@
                         className: L.default.footerHeading,
                         style: {
                             fontFamily: g,
-                            fontWeight: y ? ? 600,
+                            fontWeight: y ?? 600,
                             color: f.primary
                         },
                         children: h("title")
@@ -14433,7 +14433,7 @@
             palette: d,
             headingFont: c,
             headingWeight: u
-        } = r, h = (0, t.useMemo)(() => [...l].sort((e, a) => (e.displayOrder ? ? 0) - (a.displayOrder ? ? 0)), [l]), m = h.slice(0, 12), p = m.length >= 6, f = (0, t.useRef)(null), [g, y] = (0, t.useState)(0), v = e => {
+        } = r, h = (0, t.useMemo)(() => [...l].sort((e, a) => (e.displayOrder ?? 0) - (a.displayOrder ?? 0)), [l]), m = h.slice(0, 12), p = m.length >= 6, f = (0, t.useRef)(null), [g, y] = (0, t.useState)(0), v = e => {
             var a;
             y(e), null == (a = f.current) || a.showModal()
         }, x = (0, t.useCallback)(e => y(a => (a + e + h.length) % h.length), [h.length]), j = h[g];
@@ -14482,7 +14482,7 @@
                         className: L.default.galleryHeading,
                         style: {
                             fontFamily: c,
-                            fontWeight: u ? ? 600,
+                            fontWeight: u ?? 600,
                             color: d.primary
                         },
                         children: o("title")
@@ -14704,7 +14704,7 @@
                     className: L.default.pkNames,
                     style: {
                         fontFamily: j,
-                        fontWeight: w ? ? 600
+                        fontWeight: w ?? 600
                     },
                     children: [(0, a.jsx)("span", {
                         children: l
@@ -14793,7 +14793,7 @@
             headingFont: y,
             headingWeight: v,
             bodyFont: x
-        } = c, j = (0, t.useRef)(null), b = (0, l.f)(), w = (0, r.Q)(), N = (0, d.y)() && !b && !w, [k, _] = (0, t.useState)(!1), [$, W] = (0, t.useState)(0), [C, F] = (0, t.useState)(!1), S = (0, t.useRef)(null), T = (null == o || null == (i = o.tag) ? void 0 : i.trim()) ? ? "", O = `#${T}`, R = (null == o || null == (n = o.caption) ? void 0 : n.trim()) ? ? "", q = (0, t.useMemo)(() => {
+        } = c, j = (0, t.useRef)(null), b = (0, l.f)(), w = (0, r.Q)(), N = (0, d.y)() && !b && !w, [k, _] = (0, t.useState)(!1), [$, W] = (0, t.useState)(0), [C, F] = (0, t.useState)(!1), S = (0, t.useRef)(null), T = (null == o || null == (i = o.tag) ? void 0 : i.trim()) ?? "", O = `#${T}`, R = (null == o || null == (n = o.caption) ? void 0 : n.trim()) ?? "", q = (0, t.useMemo)(() => {
             var e;
             return e = O, "u" > typeof Intl && "Segmenter" in Intl ? Array.from(new Intl.Segmenter(void 0, {
                 granularity: "grapheme"
@@ -14878,7 +14878,7 @@
                 className: L.default.htTag,
                 style: {
                     fontFamily: y,
-                    fontWeight: v ? ? 600
+                    fontWeight: v ?? 600
                 },
                 children: [(0, a.jsx)("span", {
                     className: "sr-only",
@@ -14988,7 +14988,7 @@
                             className: L.default.rsvpHeading,
                             style: {
                                 fontFamily: m,
-                                fontWeight: p ? ? 600,
+                                fontWeight: p ?? 600,
                                 color: h.primary
                             },
                             children: c("title")
@@ -15280,7 +15280,7 @@
         let _ = Math.min(1, 7 / Math.max(c.length, u.length, 1)),
             $ = {
                 fontFamily: g,
-                fontWeight: y ? ? 600
+                fontWeight: y ?? 600
             },
             W = (0, a.jsxs)("div", {
                 className: L.default.carve,
@@ -15655,7 +15655,7 @@
                         className: L.default.timelineHeading,
                         style: {
                             fontFamily: h,
-                            fontWeight: m ? ? 600,
+                            fontWeight: m ?? 600,
                             color: u.text
                         },
                         children: c("title")
@@ -15738,7 +15738,7 @@
             weekday: "long"
         }) : "", b = (0, W.A)(n), w = null == (l = n.venueAddress) ? void 0 : l.trim(), N = null == (r = n.dressCode) ? void 0 : r.trim(), k = (0, W.L)(n.dressCodeColor), _ = (0, W.B)(n), $ = b || w || n.mapsUrl ? (0, ev.K)(n) : null, F = n.name || m("fallbackName"), S = (0, t.useRef)(null);
         (0, ex._)(S, F);
-        let T = (null == (i = n.description) ? void 0 : i.trim()) ? ? "",
+        let T = (null == (i = n.description) ? void 0 : i.trim()) ?? "",
             O = !!T && !0 === n.descriptionOnTop,
             R = /[ऀ-ॿ]/.test(T);
         return (0, a.jsxs)("article", {
@@ -15765,7 +15765,7 @@
                 className: L.default.cardName,
                 style: {
                     fontFamily: g,
-                    fontWeight: y ? ? 600
+                    fontWeight: y ?? 600
                 },
                 children: F
             }), (0, a.jsxs)("svg", {
@@ -15966,7 +15966,7 @@
             couple: p
         } = r, f = (0, u.u)(d, p), g = !!(null == f ? void 0 : f.some(e => e.parents.length > 0)), y = (0, l.f)(), x = (0, s.r)("inviteThemes.ram-mandir"), j = (0, eF.useGuestGreeting)(), k = (0, eL.L)(), _ = p.partnerOneName || x("hero.partnerOne"), $ = p.partnerTwoName || x("hero.partnerTwo"), W = Math.min(1, 8 / Math.max(_.length, $.length, 1)), C = Math.min(1, 5 / Math.max(_.length, $.length, 1)), F = (0, b.L)(c.primary, .85), S = {
             fontFamily: h,
-            fontWeight: m ? ? 600,
+            fontWeight: m ?? 600,
             color: F
         }, T = {
             fontFamily: eT,
@@ -16007,9 +16007,9 @@
                     style: {
                         "--bell": `url("${w.a[e.size]}")`,
                         "--bell-aspect": w.a.aspect,
-                        "--x-p": (null == (l = e.p) ? void 0 : l.x) ? ? 0,
-                        "--top-p": (null == (s = e.p) ? void 0 : s.top) ? ? "0px",
-                        "--h-p": (null == (r = e.p) ? void 0 : r.h) ? ? "0px",
+                        "--x-p": (null == (l = e.p) ? void 0 : l.x) ?? 0,
+                        "--top-p": (null == (s = e.p) ? void 0 : s.top) ?? "0px",
+                        "--h-p": (null == (r = e.p) ? void 0 : r.h) ?? "0px",
                         "--x-w": e.w.x,
                         "--top-w": e.w.top,
                         "--h-w": e.w.h,
@@ -16219,14 +16219,14 @@
                 return (0, f.x)((null == (e = k.sections) ? void 0 : e.length) ? k.sections : i.n).filter(e => e.visible).sort((e, a) => e.order - a.order)
             }, [k.sections]),
             T = (0, g.useGifts)(),
-            O = (0, t.useMemo)(() => [...k.events ? ? []].sort((e, a) => e.displayOrder - a.displayOrder), [k.events]),
+            O = (0, t.useMemo)(() => [...k.events ?? []].sort((e, a) => e.displayOrder - a.displayOrder), [k.events]),
             R = (0, t.useMemo)(() => (0, h.Q)(O), [O]),
             q = (0, t.useMemo)(() => R ? O.find(e => {
                 var a;
                 return (null == (a = (0, h.O)(e.date, e.startTime)) ? void 0 : a.getTime()) === R.getTime()
             }) : void 0, [O, R]),
             M = k.story,
-            E = k.photos ? ? [],
+            E = k.photos ?? [],
             D = (0, r.L)(),
             H = S.filter(e => (e => {
                 switch (e) {
@@ -16263,7 +16263,7 @@
             V = (0, x.f)(),
             K = k.couple.partnerOneName || J("hero.partnerOne"),
             Y = k.couple.partnerTwoName || J("hero.partnerTwo"),
-            Z = (null == (w = k.couple.logoUrl) ? void 0 : w.trim()) ? ? "",
+            Z = (null == (w = k.couple.logoUrl) ? void 0 : w.trim()) ?? "",
             X = /^https:\/\/[^\s"'\\()]+$/.test(Z) ? Z : "",
             ea = (0, t.useMemo)(() => (0, c.T)(c.j, k.sections), [k.sections]),
             et = (0, l.f)(),
@@ -16289,10 +16289,10 @@
             ey = (0, t.useCallback)(() => {
                 window.clearTimeout(ef.current), ed("open")
             }, []),
-            ev = O.find(e => "WEDDING" === e.type) ? ? q ? ? O[0],
+            ev = O.find(e => "WEDDING" === e.type) ?? q ?? O[0],
             ex = ev ? [ev.date ? V.date(ev.date, {
                 weekday: "long"
-            }) : "", (null == (N = ev.city) ? void 0 : N.trim()) ? ? ""].filter(Boolean).join(" · ") : "",
+            }) : "", (null == (N = ev.city) ? void 0 : N.trim()) ?? ""].filter(Boolean).join(" · ") : "",
             ej = S.some(e => "family" === e.kind) ? (0, u.v)(k.family) : void 0;
         return (0, a.jsxs)(a.Fragment, {
             children: [ec ? (0, a.jsxs)(a.Fragment, {
@@ -17111,7 +17111,7 @@
                             children: r ? String(r[e]).padStart(2, "0") : "--"
                         }), (0, a.jsx)("p", {
                             children: i(e, {
-                                count: (null == r ? void 0 : r[e]) ? ? 0
+                                count: (null == r ? void 0 : r[e]) ?? 0
                             })
                         })]
                     }, e))
@@ -17156,7 +17156,7 @@
             eo = (0, i.useGifts)(),
             ed = e => ei.some(a => a.kind === e),
             em = [...F.events].sort((e, a) => e.displayOrder - a.displayOrder),
-            ep = em.find(e => h.N.has(e.type)) ? ? em[0],
+            ep = em.find(e => h.N.has(e.type)) ?? em[0],
             ef = [F.couple.partnerOneName, F.couple.partnerTwoName].filter(Boolean).join(` ${A("hero.and")} `) || A("hero.coupleFallback"),
             eg = (0, C.f)(F.couple),
             ey = F.story.content.split(/\n\s*\n/).filter(Boolean),
@@ -17177,7 +17177,7 @@
                 "--line": O.palette.secondary,
                 "--accent": O.palette.accent,
                 "--display": O.headingFont,
-                "--weight": O.headingWeight ? ? 500,
+                "--weight": O.headingWeight ?? 500,
                 fontFamily: O.bodyFont
             };
         return (0, a.jsxs)("main", {
@@ -17756,7 +17756,7 @@
 
     function h(e) {
         var a;
-        let t = e ? ? [],
+        let t = e ?? [],
             l = t[u(t)],
             i = null == (a = null == l ? void 0 : l.overrides) ? void 0 : a[s];
         if (!i || "object" != typeof i) return {};
@@ -17818,7 +17818,7 @@
         }];
     e.s(["T", 0, 60, "S", 0, m, "$", 0, i, "U", 0, 4, "O", 0, p, "r", 0, 80, "e", 0, h, "V", 0, c, "x", 0, function(e) {
         var a, t;
-        let l = e ? ? [],
+        let l = e ?? [],
             i = null == (a = null == (t = l[u(l)]) ? void 0 : t.overrides) ? void 0 : a[s];
         if (!i || "object" != typeof i) return {};
         let n = {};
@@ -17831,7 +17831,7 @@
         let r = e.length > 0 ? [...e] : [...l.n],
             i = u(r),
             n = r[i],
-            o = { ...n.overrides ? ? {}
+            o = { ...n.overrides ?? {}
             },
             d = o[s],
             c = d && "object" == typeof d ? { ...d
@@ -17928,8 +17928,8 @@
         }
     }, "T", 0, function(e, a) {
         let t = h(a),
-            l = t.invocation ? ? e.defaults.invocation,
-            s = t.greeting ? ? e.defaults.greeting;
+            l = t.invocation ?? e.defaults.invocation,
+            s = t.greeting ?? e.defaults.greeting;
         return {
             invocation: l || null,
             verse: void 0 === t.verse ? [...e.defaults.verse] : c(t.verse),
@@ -18028,9 +18028,9 @@
         ];
 
     function S(e) {
-        let a = e.type ? ? "CUSTOM";
+        let a = e.type ?? "CUSTOM";
         if ("CUSTOM" !== a) return F[a];
-        let t = e.name ? ? "";
+        let t = e.name ?? "";
         for (let [e, a] of L)
             if (e.test(t)) return a;
         return F.CUSTOM
@@ -18085,7 +18085,7 @@
     }
 
     function I(e) {
-        return (null == e ? void 0 : e.enabled) ? (e.content ? ? "").split(/\n\s*\n/).map(e => e.replace(/^\s+|\s+$/g, "")).filter(Boolean) : []
+        return (null == e ? void 0 : e.enabled) ? (e.content ?? "").split(/\n\s*\n/).map(e => e.replace(/^\s+|\s+$/g, "")).filter(Boolean) : []
     }
 
     function B(e) {
@@ -18093,7 +18093,7 @@
     }
 
     function U(e) {
-        let a = (null == e ? void 0 : e.trim()) ? ? "";
+        let a = (null == e ? void 0 : e.trim()) ?? "";
         return /^https:\/\/[^\s"'\\()]+$/.test(a) ? a : ""
     }
 
@@ -19246,7 +19246,7 @@
                         } else i.x += i.vx + .22 * Math.sin(e / 1700 + i.phase), i.y += i.vy + .16 * Math.cos(e / 2100 + i.phase), i.x < 0 && (i.x += a.width), i.x > a.width && (i.x -= a.width), i.y < .2 * a.height && (i.vy = Math.abs(i.vy)), i.y > a.height && (i.vy = -Math.abs(i.vy));
                         let n = i.burst ? i.life : .35 + .65 * Math.max(0, Math.sin(e / 900 + i.phase)),
                             o = l.createRadialGradient(i.x, i.y, 0, i.x, i.y, 4 * i.r);
-                        l.globalAlpha = n, o.addColorStop(0, i.color ? ? r), o.addColorStop(1, "rgba(0,0,0,0)"), l.fillStyle = o, l.beginPath(), l.arc(i.x, i.y, 4 * i.r, 0, 2 * Math.PI), l.fill()
+                        l.globalAlpha = n, o.addColorStop(0, i.color ?? r), o.addColorStop(1, "rgba(0,0,0,0)"), l.fillStyle = o, l.beginPath(), l.arc(i.x, i.y, 4 * i.r, 0, 2 * Math.PI), l.fill()
                     }
                     l.globalAlpha = 1, s = requestAnimationFrame(g)
                 },
@@ -19289,7 +19289,7 @@
     function ek(e, a) {
         return {
             fontFamily: e.headingFont,
-            fontWeight: e.headingWeight ? ? 600,
+            fontWeight: e.headingWeight ?? 600,
             color: a
         }
     }
@@ -20528,7 +20528,7 @@
             weekday: "long"
         }) : "", w = (0, i.A)(d), N = null == (s = d.venueAddress) ? void 0 : s.trim(), _ = null == (r = d.dressCode) ? void 0 : r.trim(), $ = (0, i.L)(d.dressCodeColor), W = (0, i.B)(d), C = w || N || d.mapsUrl ? q(d) : null, F = (null == (n = d.name) ? void 0 : n.trim()) || p("fallbackName"), L = (0, t.useRef)(null);
         (0, eG._)(L, F);
-        let S = (null == (o = d.description) ? void 0 : o.trim()) ? ? "",
+        let S = (null == (o = d.description) ? void 0 : o.trim()) ?? "",
             T = !!S && !0 === d.descriptionOnTop,
             O = d.date ? (0, eq.f)(d) : null,
             R = A([d], F),
@@ -20750,7 +20750,7 @@
             let a = s.map((a, t) => {
                 let l = e.children[t],
                     s = function(e) {
-                        let a = e.dir ? ? 1;
+                        let a = e.dir ?? 1;
                         switch (e.move) {
                             case "ride":
                                 return {
@@ -20808,11 +20808,11 @@
                     iterations: 1 / 0,
                     direction: s.alternate ? "alternate" : "normal",
                     easing: s.easing,
-                    delay: -(a.t ? ? 0) * s.ms
+                    delay: -(a.t ?? 0) * s.ms
                 })
             });
             a.forEach(e => e.pause());
-            let t = e.closest(`.${ey.default.window}`) ? ? e,
+            let t = e.closest(`.${ey.default.window}`) ?? e,
                 l = new IntersectionObserver(e => {
                     let [t] = e;
                     return a.forEach(e => t.intersectionRatio >= 1 / 3 ? e.play() : e.pause())
@@ -21913,7 +21913,7 @@
             theme: c,
             tones: u,
             reduce: h
-        } = eN(), m = (0, ao.L)(), p = (0, t.useRef)(null), [f, g] = (0, t.useState)(0), y = r && "tree" !== r.style ? r : void 0, v = (null == y || null == (s = y.blessings) ? void 0 : s.trim()) ? ? "", x = y ? (0, n.n)(y, i).filter(e => e.grandparents.length > 0) : [], j = !v && 0 === x.length;
+        } = eN(), m = (0, ao.L)(), p = (0, t.useRef)(null), [f, g] = (0, t.useState)(0), y = r && "tree" !== r.style ? r : void 0, v = (null == y || null == (s = y.blessings) ? void 0 : s.trim()) ?? "", x = y ? (0, n.n)(y, i).filter(e => e.grandparents.length > 0) : [], j = !v && 0 === x.length;
         if ((0, t.useEffect)(() => {
                 let e = p.current;
                 if (!e || j || h || "u" < typeof IntersectionObserver) return;
@@ -22572,10 +22572,10 @@
         (0, b.f)(X, ag);
         let {
             couple: ee
-        } = q, ea = (0, t.useMemo)(() => (0, u.T)(u.e, q.sections), [q.sections]), et = (0, t.useMemo)(() => [...q.events ? ? []].sort((e, a) => (e.displayOrder ? ? 0) - (a.displayOrder ? ? 0)), [q.events]), el = (0, t.useMemo)(() => R(et), [et]), es = (0, t.useMemo)(() => {
+        } = q, ea = (0, t.useMemo)(() => (0, u.T)(u.e, q.sections), [q.sections]), et = (0, t.useMemo)(() => [...q.events ?? []].sort((e, a) => (e.displayOrder ?? 0) - (a.displayOrder ?? 0)), [q.events]), el = (0, t.useMemo)(() => R(et), [et]), es = (0, t.useMemo)(() => {
             var e;
-            return et.find(e => "WEDDING" === e.type) ? ? et.find(e => (0, W.Y)(e)) ? ? et.find(e => "CUSTOM" === e.type && "wedding" === S(e)) ? ? (null == (e = R(et)) ? void 0 : e.event) ? ? et[0]
-        }, [et]), er = (0, t.useMemo)(() => [...q.photos ? ? []].sort((e, a) => (e.displayOrder ? ? 0) - (a.displayOrder ? ? 0)), [q.photos]), ei = (0, t.useMemo)(() => {
+            return et.find(e => "WEDDING" === e.type) ?? et.find(e => (0, W.Y)(e)) ?? et.find(e => "CUSTOM" === e.type && "wedding" === S(e)) ?? (null == (e = R(et)) ? void 0 : e.event) ?? et[0]
+        }, [et]), er = (0, t.useMemo)(() => [...q.photos ?? []].sort((e, a) => (e.displayOrder ?? 0) - (a.displayOrder ?? 0)), [q.photos]), ei = (0, t.useMemo)(() => {
             var e;
             return (0, f.x)((null == (e = q.sections) ? void 0 : e.length) ? q.sections : o.n).filter(e => e.visible).sort((e, a) => e.order - a.order)
         }, [q.sections]), en = (0, g.useGifts)(), eo = (null == (v = ee.partnerOneName) ? void 0 : v.trim()) || J("hero.partnerOne"), ed = (null == (_ = ee.partnerTwoName) ? void 0 : _.trim()) || J("hero.partnerTwo"), ec = U(ee.logoUrl), eu = q.story, eh = ei.filter(e => (e => {
@@ -22607,7 +22607,7 @@
             }
         })(e.kind)), em = eh.findIndex(e => "hero" === e.kind), ep = em >= 0 && (null == ($ = eh[em + 1]) ? void 0 : $.kind) === "events", ef = eh.some(e => "hashtag" === e.kind), eb = eh.some(e => "footer" === e.kind), eN = ei.some(e => "family" === e.kind) ? (0, w.v)(q.family) : void 0, ek = es ? [es.date ? Z.date(es.date, {
             weekday: "long"
-        }) : "", (null == (C = es.city) ? void 0 : C.trim()) ? ? ""].filter(Boolean).join(" · ") : "", e_ = {
+        }) : "", (null == (C = es.city) ? void 0 : C.trim()) ?? ""].filter(Boolean).join(" · ") : "", e_ = {
             date: (null == es ? void 0 : es.date) ? Z.date(es.date, {
                 weekday: "long"
             }) : "",
@@ -22787,7 +22787,7 @@
                             top: H.ivory,
                             bottom: H.ivory,
                             node: (0, a.jsx)(an, {
-                                tag: (null == (l = q.hashtag) ? void 0 : l.tag) ? ? "",
+                                tag: (null == (l = q.hashtag) ? void 0 : l.tag) ?? "",
                                 caption: null == (s = q.hashtag) ? void 0 : s.caption,
                                 logo: ec,
                                 emblem: ea.emblem
@@ -22949,10 +22949,10 @@
                 })), !eb && q.watermarkEnabled ? (0, a.jsx)("div", {
                     className: ey.default.coda,
                     style: {
-                        background: (null == (F = eV.at(-1)) ? void 0 : F.bottom) ? ? H.ivory
+                        background: (null == (F = eV.at(-1)) ? void 0 : F.bottom) ?? H.ivory
                     },
                     children: (0, a.jsx)(eH, {
-                        color: (0, k.c)((null == (L = eV.at(-1)) ? void 0 : L.bottom) ? ? H.ivory) ? H.muted : (0, k.L)(H.light, .6)
+                        color: (0, k.c)((null == (L = eV.at(-1)) ? void 0 : L.bottom) ?? H.ivory) ? H.muted : (0, k.L)(H.light, .6)
                     })
                 }) : null]
             }), eR && "leaving" !== eC ? null : (0, a.jsx)(aN, {
@@ -23648,7 +23648,7 @@
             let n = null,
                 o = 0,
                 d = () => {
-                    o = 0, n ? ? (n = (() => {
+                    o = 0, n ?? (n = (() => {
                         let e = [];
                         for (let a of s) i.querySelectorAll(a.selector).forEach(t => {
                             let l = a.source ? t.closest(a.source) : t;
@@ -23696,7 +23696,7 @@
                         let {
                             node: t,
                             track: l
-                        } = e, s = l.property ? ? "--sf-p";
+                        } = e, s = l.property ?? "--sf-p";
                         t.style.getPropertyValue(s) !== r[a] && t.style.setProperty(s, r[a])
                     })
                 },

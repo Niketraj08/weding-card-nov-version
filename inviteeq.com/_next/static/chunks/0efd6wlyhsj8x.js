@@ -94,7 +94,7 @@
     t.s(["o", 0, function(t) {
         return r(t.replace(/\s+/g, ""))
     }, "y", 0, r, "d", 0, function(t) {
-        return (t ? ? "").replace(/\D/g, "").slice(-10)
+        return (t ?? "").replace(/\D/g, "").slice(-10)
     }])
 }, 875022, t => {
     "use strict";
@@ -117,10 +117,10 @@
     }, "o", 0, function(t) {
         return !1 !== t.enabled && "contacts" === r(t)
     }, "Q", 0, function(t) {
-        return (t.contacts ? ? []).map(t => ({
-            name: (t.name ? ? "").trim(),
-            phone: (t.phone ? ? "").trim(),
-            label: (t.label ? ? "").trim()
+        return (t.contacts ?? []).map(t => ({
+            name: (t.name ?? "").trim(),
+            phone: (t.phone ?? "").trim(),
+            label: (t.label ?? "").trim()
         })).filter(t => "" !== t.name && ("" === t.phone || i(t.phone))).slice(0, 6)
     }, "P", 0, function(t) {
         let e = t.trim(),
@@ -217,7 +217,7 @@
     "use strict";
 
     function e(t) {
-        return ((null == t ? void 0 : t.names) ? ? []).map(t => t.trim()).filter(Boolean)
+        return ((null == t ? void 0 : t.names) ?? []).map(t => t.trim()).filter(Boolean)
     }
     t.s(["L", 0, 24, "i", 0, 60, "o", 0, 60, "S", 0, function(t) {
         return e(t).length > 0
@@ -293,7 +293,7 @@
         u = r.z.object({
             heading: e.z.string().trim().min(1, "Heading font is required"),
             body: e.z.string().trim().min(1, "Body font is required"),
-            headingWeight: i.z.number().refine(t => m.includes(t), "Unsupported font weight").nullish().transform(t => t ? ? void 0),
+            headingWeight: i.z.number().refine(t => m.includes(t), "Unsupported font weight").nullish().transform(t => t ?? void 0),
             coupleName: e.z.string().trim().max(64).nullish().transform(t => t || void 0)
         }),
         d = r.z.object({
@@ -339,17 +339,17 @@
     function p(t, e) {
         return { ...t,
             palette: { ...t.palette,
-                ...e.palette ? ? {}
+                ...e.palette ?? {}
             },
             fonts: { ...t.fonts,
-                ...e.fonts ? ? {}
+                ...e.fonts ?? {}
             },
             border: { ...t.border,
-                ...e.border ? ? {}
+                ...e.border ?? {}
             },
-            radius: e.radius ? ? t.radius,
-            decoration: e.decoration ? ? t.decoration,
-            darkHero: e.darkHero ? ? t.darkHero
+            radius: e.radius ?? t.radius,
+            decoration: e.decoration ?? t.decoration,
+            darkHero: e.darkHero ?? t.darkHero
         }
     }
     t.s(["T", 0, p, "K", 0, f, "B", 0, function(t, e) {
@@ -365,7 +365,7 @@
 
     function w(t) {
         var e;
-        let r = (null == t || null == (e = t.name) ? void 0 : e.trim()) ? ? "";
+        let r = (null == t || null == (e = t.name) ? void 0 : e.trim()) ?? "";
         return r ? {
             name: r
         } : null
@@ -376,7 +376,7 @@
     }
 
     function y(t) {
-        return t ? (t.grandparents ? ? []).map(w).filter(t => null !== t) : []
+        return t ? (t.grandparents ?? []).map(w).filter(t => null !== t) : []
     }
 
     function N(t) {
@@ -386,8 +386,8 @@
         P = new Set(["groom", "dulha", "दूल्हा", "वर", "novio"]);
 
     function I(t, e) {
-        let r, i = (null == t ? void 0 : t.relation) ? ? "";
-        return "" === i ? (r = (null == e ? void 0 : e.trim().toLowerCase()) ? ? "", L.has(r) ? "daughter" : P.has(r) ? "son" : "none") : i
+        let r, i = (null == t ? void 0 : t.relation) ?? "";
+        return "" === i ? (r = (null == e ? void 0 : e.trim().toLowerCase()) ?? "", L.has(r) ? "daughter" : P.has(r) ? "son" : "none") : i
     }
     t.s(["D", 0, v, "b", 0, A, "F", 0, 4, "n", 0, function(t, e) {
         let r = (t, e, r, i) => ({

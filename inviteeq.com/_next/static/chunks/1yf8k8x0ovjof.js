@@ -735,7 +735,7 @@
         if ((0, o.isJavaScriptURLString)(e)) throw Error("Next.js has blocked a javascript: URL as a security precaution.");
         let n = (0, i.getCurrentAppRouterState)();
         if (null === n) throw Error("Internal Next.js error: Router action dispatched before initialization.");
-        switch ((null == t ? void 0 : t.kind) ? ? l.PrefetchKind.AUTO) {
+        switch ((null == t ? void 0 : t.kind) ?? l.PrefetchKind.AUTO) {
             case l.PrefetchKind.AUTO:
                 r = f.FetchStrategy.PPR;
                 break;
@@ -745,7 +745,7 @@
             default:
                 r = f.FetchStrategy.PPR
         }
-        h(e, n.nextUrl, n.root, r, (null == t ? void 0 : t.onInvalidate) ? ? null)
+        h(e, n.nextUrl, n.root, r, (null == t ? void 0 : t.onInvalidate) ?? null)
     }
 
     function h(e, t, r, n, a) {
@@ -1347,7 +1347,7 @@
         if (t === u.DEFAULT_SEGMENT_KEY || l.INTERCEPTION_ROUTE_MARKERS.some(e => t.startsWith(e))) return;
         if (t === u.PAGE_SEGMENT_KEY) return "";
         let r = [o(t)],
-            n = e[1] ? ? {},
+            n = e[1] ?? {},
             a = n.children ? f(n.children) : void 0;
         if (void 0 !== a) r.push(a);
         else
@@ -1364,7 +1364,7 @@
             let r = c(t[0]);
             if (r === u.DEFAULT_SEGMENT_KEY) return;
             if ("page" === r) return [r];
-            let n = t[1] ? ? {},
+            let n = t[1] ?? {},
                 a = n.children ? e(n.children) : void 0;
             if (void 0 !== a) return "" === r ? a : [i(r), ...a];
             for (let [t, a] of Object.entries(n)) {
@@ -1380,7 +1380,7 @@
         let r = function e(t, r) {
             let [n, a] = t, [i, c] = r, s = o(n), d = o(i);
             if (l.INTERCEPTION_ROUTE_MARKERS.some(e => s.startsWith(e) || d.startsWith(e))) return "";
-            if (("string" == typeof n || "string" == typeof i ? n !== i : n[0] !== i[0] || n[1] !== i[1]) || n === u.PAGE_SEGMENT_KEY && t[5] !== r[5]) return f(r) ? ? "";
+            if (("string" == typeof n || "string" == typeof i ? n !== i : n[0] !== i[0] || n[1] !== i[1]) || n === u.PAGE_SEGMENT_KEY && t[5] !== r[5]) return f(r) ?? "";
             for (let t in a)
                 if (c[t]) {
                     let r = e(a[t], c[t]);
@@ -1483,23 +1483,23 @@
             if (!i.startsWith(o.RSC_CONTENT_TYPE_HEADER) || !n.ok || !n.body) return e.hash && (a.hash = e.hash), m(a.toString());
             let f = n.flightResponsePromise,
                 [d, p] = await Promise.all([f, n.cacheData]);
-            if ((n.headers.get(y.NEXT_NAV_DEPLOYMENT_ID_HEADER) ? ? d.b) !== (0, g.getNavigationBuildId)()) return m(n.url);
+            if ((n.headers.get(y.NEXT_NAV_DEPLOYMENT_ID_HEADER) ?? d.b) !== (0, g.getNavigationBuildId)()) return m(n.url);
             if (void 0 !== d.n) return m(d.n);
             let S = null !== p ? await b(p, d, u) : null;
             return {
-                transportData: d.t ? ? null,
+                transportData: d.t ?? null,
                 canonicalUrl: l,
                 renderedSearch: d.q,
                 couldBeIntercepted: c,
                 supportsPerSegmentPrefetching: d.S,
                 postponed: s,
-                dynamicStaleTime: d.d ? ? P.UnknownDynamicStaleTime,
+                dynamicStaleTime: d.d ?? P.UnknownDynamicStaleTime,
                 isResponsePartial: null !== p && p.isResponsePartial,
                 staticStageResponse: S,
-                runtimePrefetchStream: d.p ? ? null,
+                runtimePrefetchStream: d.p ?? null,
                 responseHeaders: n.headers,
-                debugInfo: f._debugInfo ? ? null,
-                revealAfter: d._revealAfter ? ? null
+                debugInfo: f._debugInfo ?? null,
+                revealAfter: d._revealAfter ?? null
             }
         } catch (r) {
             if (null == (n = t.signal) ? void 0 : n.aborted) throw r;
@@ -1829,7 +1829,7 @@
         s ? (r = s.tree, c = s.renderedSearch) : (r = e.tree, c = e.renderedSearch);
         let f = new URL(e.canonicalUrl, location.origin),
             d = t.url,
-            h = (0, n.extractPathFromFlightRouterState)(r) ? ? d.pathname,
+            h = (0, n.extractPathFromFlightRouterState)(r) ?? d.pathname,
             p = Date.now(),
             g = {
                 separateRefreshUrls: null,
@@ -1950,7 +1950,7 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
                     debugChannel: n && n(O)
                 });
             h = H ? void 0 : t.a, k = t.i;
-            let r = s.headers.get(E.NEXT_NAV_DEPLOYMENT_ID_HEADER) ? ? t.b;
+            let r = s.headers.get(E.NEXT_NAV_DEPLOYMENT_ID_HEADER) ?? t.b;
             void 0 !== r && r !== (0, v.getNavigationBuildId)() || (void 0 !== t.t ? (g = t.t, y = t.q) : void 0 !== t.n && (g = t.n))
         } else h = void 0, g = void 0, y = void 0;
         return {
@@ -2886,7 +2886,7 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
                 a !== n && null === t && (t = new Map(r)), null !== t && t.set(e, a)
             }
         if (null === e.data && null === t) return e;
-        let n = t ? ? r;
+        let n = t ?? r;
         return {
             requestKey: e.requestKey,
             segment: e.segment,
@@ -2924,8 +2924,8 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
 
     function eh(e, t, r, n, a) {
         let u = e[0],
-            i = ((e[4] ? ? 0) & l.PrefetchHint.IsRootLayoutOrAbove) != 0,
-            o = e[2] ? ? null,
+            i = ((e[4] ?? 0) & l.PrefetchHint.IsRootLayoutOrAbove) != 0,
+            o = e[2] ?? null,
             c = null !== o ? {
                 canonicalUrl: o[0],
                 renderedSearch: o[1]
@@ -2942,7 +2942,7 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
                 u = eh(r, (0, y.appendSegmentRequestKeyPart)(t, e, l), h, s, a);
             null === p && (p = new Map), p.set(e, u)
         }
-        return d.slots = p, d.prefetchHints = e[4] ? ? 0, d
+        return d.slots = p, d.prefetchHints = e[4] ?? 0, d
     }
     async function ep(e, t) {
         let r = t.pathname,
@@ -2965,7 +2965,7 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
                 R = await eA(t.body);
             S.resolve(), (0, g.setSizeInCacheMap)(e, R.byteLength);
             let _ = await (0, c.decodeBufferedStage)(R, l);
-            if ((t.headers.get(A.NEXT_NAV_DEPLOYMENT_ID_HEADER) ? ? _.b) !== (0, b.getNavigationBuildId)()) return ef(e, Date.now() + 1e4), null;
+            if ((t.headers.get(A.NEXT_NAV_DEPLOYMENT_ID_HEADER) ?? _.b) !== (0, b.getNavigationBuildId)()) return ef(e, Date.now() + 1e4), null;
             let v = _.t;
             if (void 0 === v || void 0 !== _.n) return ef(e, Date.now() + 1e4), null;
             let C = (0, p.getRenderedPathname)(t),
@@ -3018,7 +3018,7 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
         if (!R || !R.ok || !eb(R) || !R.body) return null;
         let _ = await eA(R.body),
             m = await (0, c.decodeBufferedStage)(_, S);
-        if (void 0 === m.t || (R.headers.get(A.NEXT_NAV_DEPLOYMENT_ID_HEADER) ? ? m.b) !== (0, b.getNavigationBuildId)()) return null;
+        if (void 0 === m.t || (R.headers.get(A.NEXT_NAV_DEPLOYMENT_ID_HEADER) ?? m.b) !== (0, b.getNavigationBuildId)()) return null;
         let v = !0 === m.f;
         if (v) {
             if (u) return !0;
@@ -3118,7 +3118,7 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
                 let e = await eA(i.body);
                 f.resolve(), R = e.byteLength, n = (0, c.decodeBufferedStage)(e, d)
             }
-            let [v, E] = await Promise.all([n, i.cacheData]), T = Date.now(), b = await eO(T, v.s, i), C = i.headers.get(A.NEXT_NAV_DEPLOYMENT_ID_HEADER) ? ? v.b, O = null !== E ? await (0, c.resolveShellStageResponse)(E, v, d) : null, M = (r === _.FetchStrategy.PPRRuntime || r === _.FetchStrategy.RuntimeShell) && ((null == E ? void 0 : E.isResponsePartial) ? ? !1);
+            let [v, E] = await Promise.all([n, i.cacheData]), T = Date.now(), b = await eO(T, v.s, i), C = i.headers.get(A.NEXT_NAV_DEPLOYMENT_ID_HEADER) ?? v.b, O = null !== E ? await (0, c.resolveShellStageResponse)(E, v, d) : null, M = (r === _.FetchStrategy.PPRRuntime || r === _.FetchStrategy.RuntimeShell) && ((null == E ? void 0 : E.isResponsePartial) ?? !1);
             return S = em(T, r, v, O, l, u, null, o, C, b, M, null, a, R, e.segmentCacheMap), {
                 value: null,
                 closed: f.promise
@@ -3182,7 +3182,7 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
         if (c && c !== (0, b.getNavigationBuildId)()) return null !== h && e_(h, e + 1e4), null;
         let y = r.t;
         if (void 0 === y) return null !== h && e_(h, e + 1e4), null;
-        let S = (0, T.createNavigationSeed)(e, n, y, r.r ? ? null, f, u, o, d, v.UnknownDynamicStaleTime),
+        let S = (0, T.createNavigationSeed)(e, n, y, r.r ?? null, f, u, o, d, v.UnknownDynamicStaleTime),
             P = (S.root.tree.prefetchHints & l.PrefetchHint.SubtreeHasPartialPrefetching) != 0,
             R = null !== a && S.treeDivergedFromBase;
         R && (a.hasDynamicRewrite = !0);
@@ -3213,13 +3213,13 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
 
     function eE(e, t, r, n, a, l, i, o, c, s, d, h, p) {
         let y, S, P;
-        if (null === p) y = s ? ? r;
-        else if (p && a) y = s ? ? r;
+        if (null === p) y = s ?? r;
+        else if (p && a) y = s ?? r;
         else {
-            let e = s ? ? r;
+            let e = s ?? r;
             y = h ? e === _.FetchStrategy.StaticShell ? _.FetchStrategy.RuntimeShell : e === _.FetchStrategy.PPR ? _.FetchStrategy.PPRRuntime : e : e
         }
-        let R = s ? ? r,
+        let R = s ?? r,
             m = null,
             v = null;
         if (R !== _.FetchStrategy.Full && null !== i) {
@@ -3280,13 +3280,13 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
         }
         if (void 0 !== r) {
             let t;
-            return e + (isNaN(t = parseInt(r.headers.get(o.NEXT_ROUTER_STALE_TIME_HEADER) ? ? "", 10)) ? P.STATIC_STALETIME_MS : C(t))
+            return e + (isNaN(t = parseInt(r.headers.get(o.NEXT_ROUTER_STALE_TIME_HEADER) ?? "", 10)) ? P.STATIC_STALETIME_MS : C(t))
         }
         return e + P.STATIC_STALETIME_MS
     }
 
     function eM(e, t, r, n, a, l, u) {
-        let i = null !== n ? n.get(A.NEXT_NAV_DEPLOYMENT_ID_HEADER) ? ? t.b : void 0;
+        let i = null !== n ? n.get(A.NEXT_NAV_DEPLOYMENT_ID_HEADER) ?? t.b : void 0;
         eO(e, t.s).then(n => {
             ev(e, _.FetchStrategy.PPR, t, a, null, null, l, i, n, r, null, null, null, u)
         }).catch(() => {})
@@ -3440,10 +3440,10 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
                     }(e, r) && (E.treeDivergedFromBase = !0)
                 }
             }
-            let C = void 0 !== A ? A[4] ? ? 0 : 0,
-                O = t.h ? ? C,
+            let C = void 0 !== A ? A[4] ?? 0 : 0,
+                O = t.h ?? C,
                 M = (O & l.PrefetchHint.IsRootLayoutOrAbove) != 0,
-                N = void 0 !== A ? A[2] ? ? null : null,
+                N = void 0 !== A ? A[2] ?? null : null,
                 F = null !== N ? {
                     canonicalUrl: N[0],
                     renderedSearch: y
@@ -3460,7 +3460,7 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
                         i = R(r.s, P, _);
                     if (void 0 !== a && !E.treeDivergedFromBase) {
                         let e = a[1][t];
-                        void 0 === e ? i !== c.DEFAULT_SEGMENT_KEY && (E.treeDivergedFromBase = !0) : (e[2] ? ? null) !== null || (n = e)
+                        void 0 === e ? i !== c.DEFAULT_SEGMENT_KEY && (E.treeDivergedFromBase = !0) : (e[2] ?? null) !== null || (n = e)
                     }
                     let h = "string" != typeof i || (0, f.doesStaticSegmentAppearInURL)(i) ? _ + 1 : _,
                         p = (0, o.appendSegmentRequestKeyPart)(d, t, (0, o.createSegmentRequestKeyPart)(i)),
@@ -3487,7 +3487,7 @@ Read more: https://nextjs.org/docs/messages/failed-to-find-server-action`);
                 varyParams: (0, i.decodeVaryParams)(T.v, u),
                 staleTimeSeconds: void 0 !== T.s ? v(T.s) : null
             }), w.slots = U, w.prefetchHints = O, w
-        }(e, R(e.s, g, 0), t ? ? void 0, t ? ? void 0, r, n, o.ROOT_SEGMENT_REQUEST_KEY, null, u, g, 0, s)
+        }(e, R(e.s, g, 0), t ?? void 0, t ?? void 0, r, n, o.ROOT_SEGMENT_REQUEST_KEY, null, u, g, 0, s)
     }
 
     function R(e, t, r) {
@@ -5661,7 +5661,7 @@ Learn more: https://nextjs.org/docs/messages/instant-link-prefetch-partial`)
     }
 
     function o(e, t, r, n) {
-        return (void 0 === e || "0" === e) && void 0 === t && void 0 === r && void 0 === n ? null : [e ? ? "0", i(t), i(r), i(n)].join(",")
+        return (void 0 === e || "0" === e) && void 0 === t && void 0 === r && void 0 === n ? null : [e ?? "0", i(t), i(r), i(n)].join(",")
     }
     async function c(e) {
         var t = new Uint8Array(await globalThis.crypto.subtle.digest("SHA-256", u.encode(e))).subarray(0, 12);
@@ -6031,7 +6031,7 @@ Learn more: https://nextjs.org/docs/messages/instant-link-prefetch-partial`)
     }
 
     function s(e) {
-        return "string" == typeof e ? e : [e.n, e.k ? ? "", e.t, e.s]
+        return "string" == typeof e ? e : [e.n, e.k ?? "", e.t, e.s]
     }
 }, 594957, (e, t, r) => {
     "use strict";

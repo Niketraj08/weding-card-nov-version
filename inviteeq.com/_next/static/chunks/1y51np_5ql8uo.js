@@ -3112,7 +3112,7 @@
                     var t;
                     let r = window.location.href,
                         n = null == (t = window.history.state) ? void 0 : t.__PRIVATE_NEXTJS_INTERNALS_TREE;
-                    (0, x.restore)(new URL(e ? ? r, r), n)
+                    (0, x.restore)(new URL(e ?? r, r), n)
                 };
             window.history.pushState = function(t, n, a) {
                 return (null == t ? void 0 : t.__NA) || (null == t ? void 0 : t._N) || (t = I(t), a && r(a)), e(t, n, a)
@@ -3562,7 +3562,7 @@ body { margin: 0; color: var(--next-error-text); background: var(--next-error-bg
             r: x,
             p: S,
             d: k
-        } = r, E = m.join("/"), N = (0, l.transportNodeToFlightRouterState)(h.t, g), P = p ? (0, n.createHrefFromUrl)(p) : E, O = (0, u.createNavigationSeed)(t, null, h, null, !0, null, g, null, k ? ? s.UnknownDynamicStaleTime), _ = O.root, C = (0, o.createInitialRenderTreeForHydration)(t, _, O.dynamicStaleAt);
+        } = r, E = m.join("/"), N = (0, l.transportNodeToFlightRouterState)(h.t, g), P = p ? (0, n.createHrefFromUrl)(p) : E, O = (0, u.createNavigationSeed)(t, null, h, null, !0, null, g, null, k ?? s.UnknownDynamicStaleTime), _ = O.root, C = (0, o.createInitialRenderTreeForHydration)(t, _, O.dynamicStaleAt);
         return null !== p && ((0, f.discoverKnownRoute)(Date.now(), p.pathname, p.search, null, null, _, v, P, O.renderedSearch, y, !1), void 0 !== b ? void 0 !== w && null != d ? Promise.resolve(w).then(async e => {
             if (0 === e) return void d.cancel();
             let t = await (0, c.decodeStageUntilBoundary)(d, e, void 0);
@@ -3587,7 +3587,7 @@ body { margin: 0; color: var(--next-error-text); background: var(--next-error-bg
             },
             canonicalUrl: P,
             renderedSearch: g,
-            nextUrl: ((0, a.extractPathFromFlightRouterState)(N) || (null == p ? void 0 : p.pathname)) ? ? null,
+            nextUrl: ((0, a.extractPathFromFlightRouterState)(N) || (null == p ? void 0 : p.pathname)) ?? null,
             previousNextUrl: null,
             debugInfo: null
         }

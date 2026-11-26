@@ -105,7 +105,7 @@
     t.s(["f", 0, function(t, i, n, s, r) {
         let {
             latestValues: a
-        } = s, p = arguments.length > 5 && void 0 !== arguments[5] && arguments[5], g = arguments.length > 6 ? arguments[6] : void 0, y = arguments.length > 7 ? arguments[7] : void 0, x = (g ? ? (0, v.f)(t) ? function(t, i, n, s) {
+        } = s, p = arguments.length > 5 && void 0 !== arguments[5] && arguments[5], g = arguments.length > 6 ? arguments[6] : void 0, y = arguments.length > 7 ? arguments[7] : void 0, x = (g ?? (0, v.f)(t) ? function(t, i, n, s) {
             let r = (0, e.useMemo)(() => {
                 let e = f();
                 return (0, d.d)(e, i, (0, c.f)(s), t.transformTemplate, t.style), { ...e.attrs,
@@ -134,7 +134,7 @@
             return t.drag && !1 !== t.dragListener && (r.draggable = !1, o.userSelect = o.WebkitUserSelect = o.WebkitTouchCallout = "none", o.touchAction = !0 === t.drag ? "none" : `pan-${"x"===t.drag?"y":"x"}`), void 0 === t.tabIndex && (t.onTap || t.onTapStart || t.whileTap) && (r.tabIndex = 0), r.style = o, r
         })(i, a, r, t), w = function(t, e, i, n) {
             let s = {};
-            for (let r in t)("values" !== r || "object" != typeof t.values) && !(0, o.f)(t[r]) && ((r.startsWith("on") ? !m(r) : (null == n ? void 0 : n(r)) ? ? !m(r)) || !0 === i && m(r) || !e && !m(r) || t.draggable && r.startsWith("onDrag")) && (s[r] = t[r]);
+            for (let r in t)("values" !== r || "object" != typeof t.values) && !(0, o.f)(t[r]) && ((r.startsWith("on") ? !m(r) : (null == n ? void 0 : n(r)) ?? !m(r)) || !0 === i && m(r) || !e && !m(r) || t.draggable && r.startsWith("onDrag")) && (s[r] = t[r]);
             return s
         }(i, "string" == typeof t, p, y), T = t !== e.Fragment ? { ...w,
             ...x,
@@ -450,7 +450,7 @@
     }
 
     function I(t, e) {
-        let i = (null == t ? void 0 : t[e]) ? ? (null == t ? void 0 : t.default) ? ? t;
+        let i = (null == t ? void 0 : t[e]) ?? (null == t ? void 0 : t.default) ?? t;
         return i !== t ? F(i, t) : i
     }
     t.s(["f", 0, I], 727480);
@@ -587,7 +587,7 @@
                 for (let s = 0; s < e.values.length; s++) {
                     let r = e.types[s],
                         o = t.indexes[r][n[r]],
-                        a = t.values[o] ? ? 0;
+                        a = t.values[o] ?? 0;
                     i[s] = a, n[r]++
                 }
                 return i
@@ -718,11 +718,11 @@
                     i = tR(t.damping, !0),
                     n = tR(t.mass),
                     s = { ...t,
-                        stiffness: e ? ? 100,
-                        damping: i ? ? 10,
-                        mass: n ? ? 1,
+                        stiffness: e ?? 100,
+                        damping: i ?? 10,
+                        mass: n ?? 1,
                         isResolvedFromDuration: !1,
-                        isTimeDefined: (e ? ? i ? ? n) === void 0 && (void 0 !== t.duration || void 0 !== t.bounce)
+                        isTimeDefined: (e ?? i ?? n) === void 0 && (void 0 !== t.duration || void 0 !== t.bounce)
                     };
                 if (s.isTimeDefined) {
                     if (t.visualDuration) {
@@ -1109,7 +1109,7 @@
             return p && a !== tj && (c.value = (0, t7.f)(o, this.options, h, this.speed)), l && l(c.value), p && this.finish(), c
         }
         at(t) {
-            return this.holdTime ? ? es((t - this.startTime) * this.playbackSpeed)
+            return this.holdTime ?? es((t - this.startTime) * this.playbackSpeed)
         }
         sampleAt(t, e) {
             let {
@@ -1179,7 +1179,7 @@
             } = this.options;
             this.driver || (this.driver = i(t => this.tick(t))), null == (t = (e = this.options).onPlay) || t.call(e);
             let s = this.driver.now();
-            "finished" === this.state ? (this.updateFinished(), this.startTime = s) : null !== this.holdTime ? this.startTime = s - this.holdTime / (this.playbackSpeed || 1) : this.startTime || (this.startTime = n ? ? (this.pendingStartTime = s)), "finished" === this.state && this.speed < 0 && (this.startTime += this.calculatedDuration), this.holdTime = null, this.state = "running", this.driver.start()
+            "finished" === this.state ? (this.updateFinished(), this.startTime = s) : null !== this.holdTime ? this.startTime = s - this.holdTime / (this.playbackSpeed || 1) : this.startTime || (this.startTime = n ?? (this.pendingStartTime = s)), "finished" === this.state && this.speed < 0 && (this.startTime += this.calculatedDuration), this.holdTime = null, this.state = "running", this.driver.start()
         }
         pause() {
             this.state = "paused", this.updateTime(H.f.now()), this.holdTime = this.currentTime
@@ -1757,7 +1757,7 @@
                     } = t;
                     return i && eT.$.includes(i) && (null == n || null == (e = n.owner) ? void 0 : e.current) instanceof HTMLElement && ex() && (0, eM.f)()
                 })(i);
-            if (n && (f || p || this.resolvedAt !== this.createdAt) && (i.startTime ? ? (i.startTime = et(this.createdAt, this.resolvedAt))), f) {
+            if (n && (f || p || this.resolvedAt !== this.createdAt) && (i.startTime ?? (i.startTime = et(this.createdAt, this.resolvedAt))), f) {
                 var m, v;
                 i.element = null == (v = i.motionValue) || null == (m = v.owner) ? void 0 : m.current;
                 try {
@@ -1837,7 +1837,7 @@
                 motionValue: s,
                 element: r
             } = t;
-            t.autoplay ? ? (t.autoplay = !0), t.delay ? ? (t.delay = 0), t.type ? ? (t.type = "keyframes"), t.repeat ? ? (t.repeat = 0), t.repeatDelay ? ? (t.repeatDelay = 0), t.repeatType ? ? (t.repeatType = "loop");
+            t.autoplay ?? (t.autoplay = !0), t.delay ?? (t.delay = 0), t.type ?? (t.type = "keyframes"), t.repeat ?? (t.repeat = 0), t.repeatDelay ?? (t.repeatDelay = 0), t.repeatType ?? (t.repeatType = "loop");
             let o = (null == r ? void 0 : r.KeyframeResolver) || eo.p;
             this.keyframeResolver = new o(i, (e, i, n) => this.onKeyframesResolved(e, i, t, !n), n, s, r), null == (e = this.keyframeResolver) || e.scheduleResolve()
         }
@@ -1930,7 +1930,7 @@
             f = r && (null == (i = t.animationState) ? void 0 : i.getState()[r]),
             p = null == o ? void 0 : o.path;
         for (let e in p && p.animateVisualElement(t, l, o, n, c), l) {
-            let i = t.getValue(e, t.latestValues[e] ? ? null),
+            let i = t.getValue(e, t.latestValues[e] ?? null),
                 s = l[e];
             if (void 0 === s || f && function(t, e) {
                     let {
@@ -1958,7 +1958,7 @@
                 }
             }
             W(t, e);
-            let p = u ? ? t.shouldReduceMotion;
+            let p = u ?? t.shouldReduceMotion;
             i.start(eI(e, i, s, p && O.f.has(e) ? {
                 type: !1
             } : r, t, h));
@@ -1999,7 +1999,7 @@
     function eN(t, e) {
         let i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
             n = j(t, e, B(t, i.type)),
-            s = i.transitionOverride || ((null == n ? void 0 : n.transition) ? ? (t.getDefaultTransition() || {})),
+            s = i.transitionOverride || ((null == n ? void 0 : n.transition) ?? (t.getDefaultTransition() || {})),
             r = () => Promise.all(n ? eU(t, n, i) : []),
             o = function() {
                 let n = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0,
@@ -2173,7 +2173,7 @@
                                     r && (r.liveStyle = !0);
                                     let a = n && !Array.isArray(e) ? n[s] : void 0,
                                         l = t.getBaseTargetFromProps(o, s);
-                                    i[s] = (void 0 !== a ? a : void 0 === l || (0, N.f)(l) ? void 0 === t.initialValues[s] ? t.baseTarget[s] : void 0 : l) ? ? null
+                                    i[s] = (void 0 !== a ? a : void 0 === l || (0, N.f)(l) ? void 0 === t.initialValues[s] ? t.baseTarget[s] : void 0 : l) ?? null
                                 }), u.push({
                                     animation: i
                                 })
@@ -2775,7 +2775,7 @@
         }
         getAxisMotionValue(t) {
             let e = `_drag${t.toUpperCase()}`;
-            return this.visualElement.getProps()[e] || this.visualElement.getValue(t, this.visualElement.latestValues[t] ? ? 0)
+            return this.visualElement.getProps()[e] || this.visualElement.getValue(t, this.visualElement.latestValues[t] ?? 0)
         }
         snapToCursor(t) {
             var e;
@@ -3689,7 +3689,7 @@
                         (0, K.q)(l, this.layout.layoutBox, this.relativeParent.layout.layoutBox, this.options.layoutAnchor || void 0), m = this.relativeTarget, v = this.relativeTargetOrigin, g = l, y = n, tN(m.x, v.x, g.x, y), tN(m.y, v.y, g.y, y), e && (u = this.relativeTarget, p = e, tn(u.x, p.x) && tn(u.y, p.y)) && (this.isProjectionDirty = !1), e || (e = (0, tt.J)()), H(e, this.relativeTarget)
                     }
                     h && (this.animationValues = o, function(t, e, i, n, s, r) {
-                        s ? (t.opacity = (0, C.f)(0, i.opacity ? ? 1, $(n)), t.opacityExit = (0, C.f)(e.opacity ? ? 1, 0, N(n))) : r && (t.opacity = (0, C.f)(e.opacity ? ? 1, i.opacity ? ? 1, n));
+                        s ? (t.opacity = (0, C.f)(0, i.opacity ?? 1, $(n)), t.opacityExit = (0, C.f)(e.opacity ?? 1, 0, N(n))) : r && (t.opacity = (0, C.f)(e.opacity ?? 1, i.opacity ?? 1, n));
                         for (let s = 0; s < I; s++) {
                             let r = B[s],
                                 o = U(e, r),
@@ -3850,7 +3850,7 @@
                     x: o,
                     y: a
                 } = this.projectionDelta;
-                for (let e in t.transformOrigin = `${100*o.origin}% ${100*a.origin}% 0`, n.animationValues ? t.opacity = n === this ? s.opacity ? ? this.latestValues.opacity ? ? 1 : this.preserveOpacity ? this.latestValues.opacity : s.opacityExit : t.opacity = n === this ? void 0 !== s.opacity ? s.opacity : "" : void 0 !== s.opacityExit ? s.opacityExit : 0, V.f) {
+                for (let e in t.transformOrigin = `${100*o.origin}% ${100*a.origin}% 0`, n.animationValues ? t.opacity = n === this ? s.opacity ?? this.latestValues.opacity ?? 1 : this.preserveOpacity ? this.latestValues.opacity : s.opacityExit : t.opacity = n === this ? void 0 !== s.opacity ? s.opacity : "" : void 0 !== s.opacityExit ? s.opacityExit : 0, V.f) {
                     if (void 0 === s[e]) continue;
                     let {
                         correct: i,
@@ -4936,13 +4936,13 @@
                             if (/^-?(?:\d+(?:\.\d+)?|\.\d+)$/u.test(t) || /^0[^.\s]+$/u.test(t)) return parseFloat(t);
                             if (!R.test(t) && R.test(i)) return tr(e, i)
                         }
-                        return t ? ? void 0
+                        return t ?? void 0
                     }(i.readValue(e, r), e, r);
                     void 0 !== n && (t[0] = n)
                 }
                 void 0 === t[0] && (t[0] = r), n && void 0 === s && n.set(t[0])
             }
-            for (let e = 1; e < t.length; e++) t[e] ? ? (t[e] = t[e - 1])
+            for (let e = 1; e < t.length; e++) t[e] ?? (t[e] = t[e - 1])
         }
         setFinalKeyframe() {}
         measureInitialState() {}
@@ -4976,7 +4976,7 @@
                 unresolvedKeyframes: t,
                 element: e,
                 motionValue: i
-            } = this, n = t[0] ? ? (null == i ? void 0 : i.get());
+            } = this, n = t[0] ?? (null == i ? void 0 : i.get());
             if (!(null == e ? void 0 : e.current) || void 0 === n) return !1;
             for (let e = 0; e < t.length; e++)
                 if (ti(e ? t[e] : n)) return !1;
@@ -5264,7 +5264,7 @@
             return null !== this.finishedTime ? "finished" : this.animation.playState
         }
         get startTime() {
-            return this.manualStartTime ? ? Number(this.animation.startTime)
+            return this.manualStartTime ?? Number(this.animation.startTime)
         }
         set startTime(t) {
             this.manualStartTime = this.animation.startTime = t
@@ -5300,7 +5300,7 @@
                     type: e,
                     ...i
                 } = t;
-                return tG(e) && tK() ? e.applyToOptions(i) : (i.duration ? ? (i.duration = 300), i.ease ? ? (i.ease = "easeOut"), i)
+                return tG(e) && tK() ? e.applyToOptions(i) : (i.duration ?? (i.duration = 300), i.ease ?? (i.ease = "easeOut"), i)
             }(t);
             this.animation = function(t, e, i) {
                 let {
@@ -5388,7 +5388,7 @@
                     e.add(this), this.removeFromVariantTree = () => e.delete(this)
                 }
             }
-            this.values.forEach((t, e) => this.bindToMotionValue(e, t)), "never" === this.reducedMotionConfig ? this.shouldReduceMotion = !1 : "always" === this.reducedMotionConfig ? this.shouldReduceMotion = !0 : (ei.E.current || (0, ee.f)(), this.shouldReduceMotion = ei.d.current), this.shouldSkipAnimations = this.skipAnimationsConfig ? ? !1, null == (e = this.parent) || e.addChild(this), this.update(this.props, this.presenceContext), this.hasBeenMounted = !0
+            this.values.forEach((t, e) => this.bindToMotionValue(e, t)), "never" === this.reducedMotionConfig ? this.shouldReduceMotion = !1 : "always" === this.reducedMotionConfig ? this.shouldReduceMotion = !0 : (ei.E.current || (0, ee.f)(), this.shouldReduceMotion = ei.d.current), this.shouldSkipAnimations = this.skipAnimationsConfig ?? !1, null == (e = this.parent) || e.addChild(this), this.update(this.props, this.presenceContext), this.hasBeenMounted = !0
         }
         unmount() {
             var t;
@@ -5400,7 +5400,7 @@
             this.current = null
         }
         addChild(t) {
-            this.children.add(t), this.enteringChildren ? ? (this.enteringChildren = new Set), this.enteringChildren.add(t)
+            this.children.add(t), this.enteringChildren ?? (this.enteringChildren = new Set), this.enteringChildren.add(t)
         }
         removeChild(t) {
             this.children.delete(t), this.enteringChildren && this.enteringChildren.delete(t)
@@ -5542,14 +5542,14 @@
             let i = this.values.get(t);
             if (void 0 === i && void 0 !== e) {
                 var n;
-                i = (0, t5.o)(e ? ? (null == (n = this.getDefaultValue) ? void 0 : n.call(this, t)), {
+                i = (0, t5.o)(e ?? (null == (n = this.getDefaultValue) ? void 0 : n.call(this, t)), {
                     owner: this
                 }), this.addValue(t, i)
             }
             return i
         }
         readValue(t, e) {
-            let i = void 0 === this.latestValues[t] && this.current ? this.getBaseTargetFromProps(this.props, t) ? ? this.readValueFromInstance(this.current, t, this.options) : this.latestValues[t];
+            let i = void 0 === this.latestValues[t] && this.current ? this.getBaseTargetFromProps(this.props, t) ?? this.readValueFromInstance(this.current, t, this.options) : this.latestValues[t];
             if (null != i) {
                 let n, s;
                 "string" == typeof i && (n = i, /^-?(?:\d+(?:\.\d+)?|\.\d+)$/u.test(n) || (s = i, /^0[^.\s]+$/u.test(s))) ? i = parseFloat(i) : "number" != typeof i && !R.test(i) && R.test(e) && (i = tr(t, e)), this.setBaseTarget(t, X(i) ? i.get() : i)
@@ -5736,7 +5736,7 @@
             style: f
         } = t;
         for (let t of em) void 0 !== c[t] && (f[t] = c[t], delete c[t]);
-        (f.transform || c.transformOrigin) && (f.transformOrigin = c.transformOrigin ? ? "50% 50%", delete c.transformOrigin), f.transform && (f.transformBox = (null == s ? void 0 : s.transformBox) ? ? "fill-box", delete c.transformBox), void 0 !== r && (c.x = r), void 0 !== o && (c.y = o), void 0 !== a && (c.scale = a), void 0 !== l && function(t, e) {
+        (f.transform || c.transformOrigin) && (f.transformOrigin = c.transformOrigin ?? "50% 50%", delete c.transformOrigin), f.transform && (f.transformBox = (null == s ? void 0 : s.transformBox) ?? "fill-box", delete c.transformBox), void 0 !== r && (c.x = r), void 0 !== o && (c.y = o), void 0 !== a && (c.scale = a), void 0 !== l && function(t, e) {
             let i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 1,
                 n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 0,
                 s = !(arguments.length > 4) || void 0 === arguments[4] || arguments[4];
@@ -5789,10 +5789,10 @@
     t.s(["f", 0, ew], 625543), t.s(["f", 0, eT], 747281), t.s(["f", 0, eb], 97075), t.s(["f", 0, eS], 716945);
     class eP extends eo {
         getBaseTargetFromProps(t, e) {
-            return i.has(e) ? super.getBaseTargetFromProps(t, e) ? ? tf(e) : t[e]
+            return i.has(e) ? super.getBaseTargetFromProps(t, e) ?? tf(e) : t[e]
         }
         getDefaultValue(t) {
-            return i.has(t) ? this.latestValues[t] ? ? tf(t) : void 0
+            return i.has(t) ? this.latestValues[t] ?? tf(t) : void 0
         }
         readValueFromInstance(t, e) {
             if (i.has(e)) {
@@ -5933,7 +5933,7 @@
     }
 
     function eU(t, e, i) {
-        let n = i ? ? t;
+        let n = i ?? t;
         eI(t.x, eO(e.x, n.x), e.scaleX, e.scale, e.originX), eI(t.y, eO(e.y, n.y), e.scaleY, e.scale, e.originY)
     }
 
@@ -6000,7 +6000,7 @@
         else if (eY.indexOf(t) > -1 || /[A-Z]/u.test(t)) return !0;
         return !1
     }
-    t.s(["f", 0, ez], 907293), t.s(["f", 0, (t, e) => e.isSVG ? ? ez(t) ? new eP(e) : new eN(e, {
+    t.s(["f", 0, ez], 907293), t.s(["f", 0, (t, e) => e.isSVG ?? ez(t) ? new eP(e) : new eN(e, {
         allowProjection: t !== eW.Fragment
     })], 981679)
 }, 542218, 562763, t => {
@@ -6141,7 +6141,7 @@
         if ("string" == typeof t) {
             let n = document;
             e && (n = e.current);
-            let s = (null == i ? void 0 : i[t]) ? ? n.querySelectorAll(t);
+            let s = (null == i ? void 0 : i[t]) ?? n.querySelectorAll(t);
             return s ? Array.from(s) : []
         }
         return Array.from(t).filter(t => null != t)
@@ -6283,7 +6283,7 @@
 
     function a(t, e) {
         let i = r(t);
-        return () => o[e] ? ? i()
+        return () => o[e] ?? i()
     }
     t.s(["f", 0, a], 722084);
     let l = a(() => void 0 !== window.ScrollTimeline, "scrollTimeline"),

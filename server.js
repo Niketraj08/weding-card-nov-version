@@ -13,7 +13,9 @@ const STATIC_DIR = path.join(__dirname, 'inviteeq.com');
 const HTML_FILE = path.join(STATIC_DIR, 'demos', 'kashi-vishwanath.html');
 const LAYOUTS_DIR = path.join(STATIC_DIR, 'layouts', 'kashi-vishwanath');
 
-const rawHtml = fs.readFileSync(HTML_FILE, 'utf-8');
+const rawHtml = fs
+  .readFileSync(HTML_FILE, 'utf-8')
+  .replaceAll('dpl=8acdcd60741d4d58239951e096b06a5a041f6d88', 'dpl=8acdcd60741d4d58239951e096b06a5a041f6d88-v2');
 const rootPatchedHtml = rawHtml.replace(
   '<head>',
   '<head><script>if(window.location.pathname!=="/demos/kashi-vishwanath"){window.history.replaceState(null,"","/demos/kashi-vishwanath"+window.location.search+window.location.hash);}</script>'
@@ -25,17 +27,30 @@ app.disable('x-powered-by');
 const remoteAssetCache = new Map();
 
 app.get('/', (_req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
   res.type('html').send(rootPatchedHtml);
 });
 
 app.get(['/demos/kashi-vishwanath', '/demos/kashi-vishwanath.html'], (_req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
   res.type('html').send(rawHtml);
+});
+
+app.get('/api/version', (_req, res) => {
+  res.json({ ok: true });
+});
+
+app.get('/_next/static/chunks/0cz1d0mv5g_q7.js', (_req, res) => {
+  res.type('application/javascript').send('');
 });
 
 app.use(
   express.static(STATIC_DIR, {
     extensions: ['html'],
-    maxAge: '1h',
+    maxAge: 0,
+    setHeaders: (res) => {
+      res.setHeader('Cache-Control', 'no-store');
+    },
   })
 );
 

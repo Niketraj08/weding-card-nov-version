@@ -69,7 +69,7 @@
                 if (i || 0 === i) throw Error(a ? E(e) : j(e));
                 return i
             }
-            let f = v(o, s.props ? ? {});
+            let f = v(o, s.props ?? {});
             return s.type !== t.Fragment && (f.ref = n ? u : c), t.cloneElement(s, f)
         });
         return r.displayName = `${e}.Slot`, r
@@ -219,7 +219,7 @@
                 children: p("errorTitle")
             }), (0, t.jsx)("p", {
                 className: "mt-2 max-w-md text-sm text-muted-foreground",
-                children: u ? ? p("errorBody")
+                children: u ?? p("errorBody")
             }), (0, t.jsxs)("div", {
                 className: "mt-6 flex flex-wrap items-center justify-center gap-3",
                 children: [c ? (0, t.jsx)(s.K, {

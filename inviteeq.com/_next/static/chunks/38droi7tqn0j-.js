@@ -518,8 +518,8 @@
         for (let n of (e.request && function(e) {
                 if (delete e.data, delete e.cookies, e.url && (e.url = o(e.url)), "string" == typeof e.query_string ? e.query_string = o(`?${e.query_string}`).slice(1) : delete e.query_string, e.headers)
                     for (let t of Object.keys(e.headers)) u.has(t.toLowerCase()) ? delete e.headers[t] : e.headers[t] = o(e.headers[t])
-            }(e.request), e.transaction && (e.transaction = o(e.transaction)), e.message && (e.message = o(e.message)), (null == (t = e.logentry) ? void 0 : t.message) && (e.logentry.message = o(e.logentry.message)), (null == (r = e.exception) ? void 0 : r.values) ? ? [])) n.value && (n.value = o(n.value));
-        for (let t of (a(e.tags), a(e.extra), a(e.contexts), e.spans ? ? [])) t.description && (t.description = o(t.description)), a(t.data);
+            }(e.request), e.transaction && (e.transaction = o(e.transaction)), e.message && (e.message = o(e.message)), (null == (t = e.logentry) ? void 0 : t.message) && (e.logentry.message = o(e.logentry.message)), (null == (r = e.exception) ? void 0 : r.values) ?? [])) n.value && (n.value = o(n.value));
+        for (let t of (a(e.tags), a(e.extra), a(e.contexts), e.spans ?? [])) t.description && (t.description = o(t.description)), a(t.data);
         return (null == (n = e.user) ? void 0 : n.id) !== void 0 ? e.user = {
             id: e.user.id
         } : delete e.user, e
@@ -554,7 +554,7 @@
                 type: t
             })
         }, a = e => {
-            o(e.error ? ? e.message, "auto.browser.global_handlers.onerror")
+            o(e.error ?? e.message, "auto.browser.global_handlers.onerror")
         }, u = e => {
             o(e.reason, "auto.browser.global_handlers.onunhandledrejection")
         }, window.addEventListener("error", a), window.addEventListener("unhandledrejection", u), () => (window.removeEventListener("error", a), window.removeEventListener("unhandledrejection", u), n.splice(0)));

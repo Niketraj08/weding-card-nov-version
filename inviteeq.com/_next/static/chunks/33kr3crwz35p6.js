@@ -1360,13 +1360,13 @@
                     localePrefix: "object" == typeof(c = d.localePrefix) ? c : {
                         mode: c || "always"
                     },
-                    localeCookie: !!((u = d.localeCookie) ? ? 1) && {
+                    localeCookie: !!((u = d.localeCookie) ?? 1) && {
                         name: "NEXT_LOCALE",
                         sameSite: "lax",
                         ..."object" == typeof u && u
                     },
-                    localeDetection: d.localeDetection ? ? !0,
-                    alternateLinks: d.alternateLinks ? ? !0
+                    localeDetection: d.localeDetection ?? !0,
+                    alternateLinks: d.alternateLinks ?? !0
                 },
                 p = f.pathnames,
                 h = (0, a.forwardRef)(function(t, a) {

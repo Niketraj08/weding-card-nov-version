@@ -78,7 +78,7 @@
                     }
                 }
             }(...t), t)
-        }(m, !1 !== p ? (null == (i = n.props) ? void 0 : i.ref) ? ? (null == n ? void 0 : n.ref) : void 0);
+        }(m, !1 !== p ? (null == (i = n.props) ? void 0 : i.ref) ?? (null == n ? void 0 : n.ref) : void 0);
         return (0, a.useInsertionEffect)(() => {
             let {
                 width: e,
@@ -98,7 +98,7 @@
             let w = b.ownerDocument,
                 x = w.createElement("style");
             y && (x.nonce = y);
-            let j = f ? ? w.head;
+            let j = f ?? w.head;
             return j.appendChild(x), x.sheet && x.sheet.insertRule(`
           [data-motion-pop-id="${h}"] {
             position: absolute !important;
@@ -1113,8 +1113,8 @@ Read more: https://nextjs.org/docs/messages/next-image-missing-loader`)
         s = new WeakMap;
 
     function a(e, t) {
-        let r = e ? ? o,
-            i = t ? ? o,
+        let r = e ?? o,
+            i = t ?? o,
             n = s.get(r);
         if (n) {
             let e = n.get(i);

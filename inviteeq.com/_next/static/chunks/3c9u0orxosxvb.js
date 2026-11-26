@@ -90,7 +90,7 @@
                 ...x
             } = e, y = t.useRef(null), b = (0, o.f)(a, y), M = (0, c.f)(f), [C, R] = (0, u.f)({
                 prop: p,
-                defaultProp: g ? ? null,
+                defaultProp: g ?? null,
                 onChange: v,
                 caller: T
             }), [j, D] = t.useState(!1), I = (0, m.f)(h), P = k(l), E = t.useRef(!1), [F, O] = t.useState(0);
@@ -591,11 +591,11 @@
             } = e, d = eC(eT, u), f = es(u), p = t.useRef(null), g = (0, o.f)(a, p), [v, h] = t.useState(!1), [m, w] = t.useState("");
             return t.useEffect(() => {
                 let e = p.current;
-                e && w((e.textContent ? ? "").trim())
+                e && w((e.textContent ?? "").trim())
             }, [s.children]), (0, n.jsx)(eo.ItemSlot, {
                 scope: u,
                 disabled: l,
-                textValue: c ? ? m,
+                textValue: c ?? m,
                 children: (0, n.jsx)(V, {
                     asChild: !0,
                     ...f,
@@ -936,7 +936,7 @@
                 modal: s = !0
             } = e, d = nn(r), f = t.useRef(null), [g, v] = (0, u.f)({
                 prop: i,
-                defaultProp: l ? ? !1,
+                defaultProp: l ?? !1,
                 onChange: c,
                 caller: e8
             });
@@ -1105,7 +1105,7 @@
                 defaultOpen: i
             } = e, l = nn(t), [c, s] = (0, u.f)({
                 prop: o,
-                defaultProp: i ? ? !1,
+                defaultProp: i ?? !1,
                 onChange: a,
                 caller: "DropdownMenuSub"
             });

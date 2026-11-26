@@ -31,7 +31,7 @@
             flock: l,
             timeSeconds: n,
             playing: o = !0
-        } = e, c = (0, r.useRef)(null), [d] = (0, r.useState)(() => l ? ? i()), h = l ? ? d, p = void 0 !== n, u = (0, r.useRef)(null);
+        } = e, c = (0, r.useRef)(null), [d] = (0, r.useState)(() => l ?? i()), h = l ?? d, p = void 0 !== n, u = (0, r.useRef)(null);
         return (0, r.useLayoutEffect)(() => {
             let e = c.current,
                 t = null == e ? void 0 : e.getContext("2d");
@@ -144,7 +144,7 @@
         }(i), u = (0, r.useMemo)(() => {
             let e = [l, n, o];
             return Array.from({
-                length: c ? ? ("confetti" === p ? 26 : "petals" === p ? 16 : 20)
+                length: c ?? ("confetti" === p ? 26 : "petals" === p ? 16 : 20)
             }, (t, r) => {
                 let i = ("sparkles" === p ? 8 : 12) + r % 4 * ("confetti" === p ? 3 : 5),
                     a = ("sparkles" === p ? 3 : 9) + r % 6 * ("sparkles" === p ? .7 : 2.1),
@@ -350,7 +350,7 @@
         CUSTOM: "heart"
     };
     e.s(["u", 0, t, "h", 0, function(e) {
-        return t[e] ? ? "heart"
+        return t[e] ?? "heart"
     }])
 }, 83211, e => {
     "use strict";
@@ -395,8 +395,8 @@
     "use strict";
     e.s(["f", 0, function(e) {
         var t, r, i, a;
-        let s = (null == (r = e.partnerOneName) || null == (t = r.trim()) ? void 0 : t[0]) ? ? "",
-            l = (null == (a = e.partnerTwoName) || null == (i = a.trim()) ? void 0 : i[0]) ? ? "";
+        let s = (null == (r = e.partnerOneName) || null == (t = r.trim()) ? void 0 : t[0]) ?? "",
+            l = (null == (a = e.partnerTwoName) || null == (i = a.trim()) ? void 0 : i[0]) ?? "";
         return `${s}${l}`.toUpperCase() || "&"
     }])
 }, 450308, e => {
@@ -1316,8 +1316,8 @@
     }, "q", 0, function(e) {
         return "prayer" === e || "anand-karaj" === e
     }, "O", 0, function(e) {
-        if ("CUSTOM" !== e.type) return r[e.type] ? ? "shagun";
-        let i = e.name ? ? "";
+        if ("CUSTOM" !== e.type) return r[e.type] ?? "shagun";
+        let i = e.name ?? "";
         for (let [e, r] of t)
             if (e.test(i)) return r;
         return "shagun"
@@ -1487,7 +1487,7 @@
     }, "r", 0, [.65, 0, .35, 1], "Z", 0, "M2 9 q 14 -9 28 0 t 28 0 t 28 0 t 28 0 t 28 0", "_", 0, function(e) {
         return `/themes/aquarelle/${t[e].file}`
     }, "h", 0, function(e) {
-        return r[e] ? ? "heart"
+        return r[e] ?? "heart"
     }], 833605);
     var i = e.i(729176);
     e.s(["f", 0, function(e) {
@@ -1822,7 +1822,7 @@
             })]
         })
     }, "h", 0, function(e) {
-        return n[e] ? ? "cross"
+        return n[e] ?? "cross"
     }, "a", 0, function(e, t) {
         if (!e) return t;
         let r = e.split(/[,\n]/).map(e => e.trim()).filter(Boolean).filter(e => e.length <= 40);
@@ -2180,7 +2180,7 @@
             woodGrad: "left" === e ? "linear-gradient(90deg, #3a180a 0%, #6d3418 78%, #7c3f1e 100%)" : "linear-gradient(90deg, #7c3f1e 0%, #6d3418 22%, #3a180a 100%)"
         }
     }, "h", 0, function(e) {
-        return s[e] ? ? "flame"
+        return s[e] ?? "flame"
     }, "p", 0, function(e) {
         return Array.from({
             length: e
@@ -2274,10 +2274,10 @@
             edge: (0, t.L)("#000000", .28)
         }
     }, "h", 0, function(e) {
-        return n[e] ? ? "crown"
+        return n[e] ?? "crown"
     }, "z", 0, function(e) {
         var t;
-        return null == (t = e.find(e => "WEDDING" === e.type) ? ? e[Math.floor(e.length / 2)]) ? void 0 : t.id
+        return null == (t = e.find(e => "WEDDING" === e.type) ?? e[Math.floor(e.length / 2)]) ? void 0 : t.id
     }, "$", 0, function(e) {
         return Array.from({
             length: e
@@ -3201,9 +3201,9 @@
         gold: "#c9a227",
         light: "#e8d48b"
     }, "Y", 0, '"Reem Kufi", "Amiri", serif', "h", 0, function(e) {
-        return c[e] ? ? "star"
+        return c[e] ?? "star"
     }, "P", 0, function(e, t) {
-        return e.find(e => "NIKAH" === e.type) ? ? e.find(e => "WEDDING" === e.type) ? ? e.find(t) ? ? e[0]
+        return e.find(e => "NIKAH" === e.type) ?? e.find(e => "WEDDING" === e.type) ?? e.find(t) ?? e[0]
     }])
 }, 372169, e => {
     "use strict";
@@ -3490,7 +3490,7 @@
             })]
         })
     }, "W", 0, "M6 0 Q10 4 6 12 Q2 4 6 0Z", "h", 0, function(e) {
-        return s[e] ? ? "crown"
+        return s[e] ?? "crown"
     }, "H", 0, function(e, t, r) {
         return Array.from({
             length: e
@@ -3693,7 +3693,7 @@
     }, "J", 0, l, "W", 0, 22.5, "b", 0, s, "X", 0, '"Tangerine", "Marcellus", cursive', "c", 0, function(e, t) {
         return `radial-gradient(120% 100% at 50% 45%, ${e} 0%, ${t} 46%, ${i} 100%)`
     }, "h", 0, function(e) {
-        return u[e] ? ? "shell"
+        return u[e] ?? "shell"
     }, "z", 0, c, "Y", 0, o, "C", 0, (e, t) => e.drift * (18 + t % 3 * 10), "g", 0, function(e) {
         return Array.from({
             length: e

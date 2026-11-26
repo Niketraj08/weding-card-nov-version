@@ -28,7 +28,7 @@
     function l(t, e) {
         var a, i, o, u;
         let l = (0, n.f)(),
-            d = (null == e ? void 0 : e.weekStartsOn) ? ? (null == e || null == (i = e.locale) || null == (a = i.options) ? void 0 : a.weekStartsOn) ? ? l.weekStartsOn ? ? (null == (u = l.locale) || null == (o = u.options) ? void 0 : o.weekStartsOn) ? ? 0,
+            d = (null == e ? void 0 : e.weekStartsOn) ?? (null == e || null == (i = e.locale) || null == (a = i.options) ? void 0 : a.weekStartsOn) ?? l.weekStartsOn ?? (null == (u = l.locale) || null == (o = u.options) ? void 0 : o.weekStartsOn) ?? 0,
             s = (0, r.f)(t, null == e ? void 0 : e.in),
             c = s.getDay();
         return s.setDate(s.getDate() - (7 * (c < d) + c - d)), s.setHours(0, 0, 0, 0), s
@@ -57,7 +57,7 @@
         let s = (0, r.f)(t, null == e ? void 0 : e.in),
             c = s.getFullYear(),
             h = (0, n.f)(),
-            f = (null == e ? void 0 : e.firstWeekContainsDate) ? ? (null == e || null == (o = e.locale) || null == (a = o.options) ? void 0 : a.firstWeekContainsDate) ? ? h.firstWeekContainsDate ? ? (null == (d = h.locale) || null == (u = d.options) ? void 0 : u.firstWeekContainsDate) ? ? 1,
+            f = (null == e ? void 0 : e.firstWeekContainsDate) ?? (null == e || null == (o = e.locale) || null == (a = o.options) ? void 0 : a.firstWeekContainsDate) ?? h.firstWeekContainsDate ?? (null == (d = h.locale) || null == (u = d.options) ? void 0 : u.firstWeekContainsDate) ?? 1,
             m = (0, i.f)((null == e ? void 0 : e.in) || t, 0);
         m.setFullYear(c + 1, 0, f), m.setHours(0, 0, 0, 0);
         let g = l(m, e),
@@ -260,7 +260,7 @@
             },
             w: function(t, e, a, u) {
                 var d, s, f, m;
-                let g, w, b, v, y, p = Math.round((l(g = (0, r.f)(t, null == u ? void 0 : u.in), u) - (w = (0, n.f)(), b = (null == u ? void 0 : u.firstWeekContainsDate) ? ? (null == u || null == (s = u.locale) || null == (d = s.options) ? void 0 : d.firstWeekContainsDate) ? ? w.firstWeekContainsDate ? ? (null == (m = w.locale) || null == (f = m.options) ? void 0 : f.firstWeekContainsDate) ? ? 1, v = c(g, u), (y = (0, i.f)((null == u ? void 0 : u.in) || g, 0)).setFullYear(v, 0, b), y.setHours(0, 0, 0, 0), l(y, u))) / o.A) + 1;
+                let g, w, b, v, y, p = Math.round((l(g = (0, r.f)(t, null == u ? void 0 : u.in), u) - (w = (0, n.f)(), b = (null == u ? void 0 : u.firstWeekContainsDate) ?? (null == u || null == (s = u.locale) || null == (d = s.options) ? void 0 : d.firstWeekContainsDate) ?? w.firstWeekContainsDate ?? (null == (m = w.locale) || null == (f = m.options) ? void 0 : f.firstWeekContainsDate) ?? 1, v = c(g, u), (y = (0, i.f)((null == u ? void 0 : u.in) || g, 0)).setFullYear(v, 0, b), y.setHours(0, 0, 0, 0), l(y, u))) / o.A) + 1;
                 return "wo" === e ? a.ordinalNumber(p, {
                     unit: "week"
                 }) : h(p, e.length)
@@ -691,9 +691,9 @@
     t.s(["f", 0, function(t, a, i) {
         var o, u, l, d, s, c, h, f;
         let g = (0, n.f)(),
-            w = (null == i ? void 0 : i.locale) ? ? g.locale ? ? e.f,
-            b = (null == i ? void 0 : i.firstWeekContainsDate) ? ? (null == i || null == (u = i.locale) || null == (o = u.options) ? void 0 : o.firstWeekContainsDate) ? ? g.firstWeekContainsDate ? ? (null == (d = g.locale) || null == (l = d.options) ? void 0 : l.firstWeekContainsDate) ? ? 1,
-            v = (null == i ? void 0 : i.weekStartsOn) ? ? (null == i || null == (c = i.locale) || null == (s = c.options) ? void 0 : s.weekStartsOn) ? ? g.weekStartsOn ? ? (null == (f = g.locale) || null == (h = f.options) ? void 0 : h.weekStartsOn) ? ? 0,
+            w = (null == i ? void 0 : i.locale) ?? g.locale ?? e.f,
+            b = (null == i ? void 0 : i.firstWeekContainsDate) ?? (null == i || null == (u = i.locale) || null == (o = u.options) ? void 0 : o.firstWeekContainsDate) ?? g.firstWeekContainsDate ?? (null == (d = g.locale) || null == (l = d.options) ? void 0 : l.firstWeekContainsDate) ?? 1,
+            v = (null == i ? void 0 : i.weekStartsOn) ?? (null == i || null == (c = i.locale) || null == (s = c.options) ? void 0 : s.weekStartsOn) ?? g.weekStartsOn ?? (null == (f = g.locale) || null == (h = f.options) ? void 0 : h.weekStartsOn) ?? 0,
             y = (0, r.f)(t, null == i ? void 0 : i.in);
         if (!P(y)) throw RangeError("Invalid time value");
         let C = a.match(S).map(t => {
@@ -1165,7 +1165,7 @@
     function h(t) {
         var e;
         if (t.type && l.has(t.type)) return !0;
-        let n = (null == (e = t.name) ? void 0 : e.trim()) ? ? "";
+        let n = (null == (e = t.name) ? void 0 : e.trim()) ?? "";
         return "CUSTOM" === t.type && s.test(n) && !c.test(n)
     }
 
@@ -1182,7 +1182,7 @@
             });
         if (0 === a.length) return null;
         let i = a.filter(t => h(t.event));
-        return i.length > 0 ? i.find(t => t.at.getTime() >= r) ? ? i[i.length - 1] : a[a.length - 1]
+        return i.length > 0 ? i.find(t => t.at.getTime() >= r) ?? i[i.length - 1] : a[a.length - 1]
     }
 
     function m(t) {
@@ -1325,7 +1325,7 @@
     }, "Y", 0, h, "O", 0, u, "P", 0, f, "Q", 0, function(t) {
         var e;
         let n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : Date.now();
-        return (null == (e = f(t, void 0, n)) ? void 0 : e.at) ? ? null
+        return (null == (e = f(t, void 0, n)) ? void 0 : e.at) ?? null
     }, "q", 0, g], 301444)
 }]);
 

@@ -14,7 +14,7 @@
     var n = function() {
             var e, t, r;
             if (null != self.TURBOPACK_ASSET_SUFFIX) return self.TURBOPACK_ASSET_SUFFIX;
-            let n = (null == (r = document) || null == (t = r.currentScript) || null == (e = t.getAttribute) ? void 0 : e.call(t, "src")) ? ? "",
+            let n = (null == (r = document) || null == (t = r.currentScript) || null == (e = t.getAttribute) ? void 0 : e.call(t, "src")) ?? "",
                 o = n.indexOf("?");
             return o >= 0 ? n.slice(o) : ""
         }(),
@@ -367,7 +367,7 @@
     };
     $.R = function(e) {
         let t = this.r(e);
-        return (null == t ? void 0 : t.default) ? ? t
+        return (null == t ? void 0 : t.default) ?? t
     }, $.P = function(e) {
         return `/ROOT/${e??""}`
     }, $.F = function(e, t) {
@@ -467,7 +467,7 @@
                         break
                     }
                 }
-                let i = n ? ? l,
+                let i = n ?? l,
                     u = !1;
                 for (let n = r; n < o; n++) {
                     let r = e[n];

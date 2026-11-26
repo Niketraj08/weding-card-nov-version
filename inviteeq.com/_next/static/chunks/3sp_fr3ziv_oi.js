@@ -251,7 +251,7 @@
         let e = (0, u.useContext)(i.AppRouterContext);
         if (null === e) throw Error("invariant expected app router to be mounted");
         let t = (0, u.useContext)(i.LayoutRouterContext),
-            r = (null == t ? void 0 : t.parentRenderTree.data.bfcacheId) ? ? 0;
+            r = (null == t ? void 0 : t.parentRenderTree.data.bfcacheId) ?? 0;
         return (0, u.useMemo)(() => ({
             back: e.back,
             forward: e.forward,
@@ -477,7 +477,7 @@
 
     function l(e, t) {
         var r, n;
-        throw t ? ? (t = (null == (n = a.actionAsyncStorage) || null == (r = n.getStore()) ? void 0 : r.isAction) ? "push" : "replace"), c(e, t, u.RedirectStatusCode.TemporaryRedirect)
+        throw t ?? (t = (null == (n = a.actionAsyncStorage) || null == (r = n.getStore()) ? void 0 : r.isAction) ? "push" : "replace"), c(e, t, u.RedirectStatusCode.TemporaryRedirect)
     }
 
     function s(e) {
@@ -1365,7 +1365,7 @@
                 if (o) n = t[1][r];
                 else {
                     let e = t[1];
-                    n = e.children ? ? Object.values(e)[0]
+                    n = e.children ?? Object.values(e)[0]
                 }
                 if (!n) return i;
                 let a = u(n[0]);

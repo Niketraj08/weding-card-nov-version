@@ -55,7 +55,7 @@
                 onInteractOutside: w,
                 onDismiss: S,
                 ...C
-            } = e, O = n.useContext(m), [N, P] = n.useState(null), R = (null == N ? void 0 : N.ownerDocument) ? ? (null == (a = globalThis) ? void 0 : a.document), [, L] = n.useState({}), T = (0, i.f)(u, P), k = Array.from(O.layers), [A] = [...O.layersWithOutsidePointerEventsDisabled].slice(-1), M = A ? k.indexOf(A) : -1, D = N ? k.indexOf(N) : -1, I = O.layersWithOutsidePointerEventsDisabled.size > 0, F = D >= M, x = n.useRef(!1), W = b(e => {
+            } = e, O = n.useContext(m), [N, P] = n.useState(null), R = (null == N ? void 0 : N.ownerDocument) ?? (null == (a = globalThis) ? void 0 : a.document), [, L] = n.useState({}), T = (0, i.f)(u, P), k = Array.from(O.layers), [A] = [...O.layersWithOutsidePointerEventsDisabled].slice(-1), M = A ? k.indexOf(A) : -1, D = N ? k.indexOf(N) : -1, I = O.layersWithOutsidePointerEventsDisabled.size > 0, F = D >= M, x = n.useRef(!1), W = b(e => {
                 null == h || h(e), null == w || w(e), e.defaultPrevented || null == S || S()
             }, {
                 ownerDocument: R,
@@ -338,7 +338,7 @@
                             n = CustomEvent;
                         setTimeout(() => {
                             let r = new n(l, s);
-                            E.addEventListener(l, N), E.dispatchEvent(r), r.defaultPrevented || S(e ? ? t.body, {
+                            E.addEventListener(l, N), E.dispatchEvent(r), r.defaultPrevented || S(e ?? t.body, {
                                 select: !0
                             }), E.removeEventListener(l, N), C.remove(A)
                         }, 0)
@@ -457,7 +457,7 @@
             select: t = !1
         } = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
         if (e && e.focus) {
-            let n = (e.ownerDocument ? ? document).activeElement;
+            let n = (e.ownerDocument ?? document).activeElement;
             e.focus({
                 preventScroll: !0
             }), e !== n && w(e) && t && e.select()
@@ -520,7 +520,7 @@
     function u(e) {
         let [r, u] = t.useState(o());
         return (0, n.f)(() => {
-            e || u(e => e ? ? String(i++))
+            e || u(e => e ?? String(i++))
         }, [e]), e || (r ? `radix-${r}` : "")
     }
     r(u, "name", {
@@ -538,7 +538,7 @@
         });
 
     function i(e, n) {
-        return t.useReducer((e, t) => n[e][t] ? ? e, e)
+        return t.useReducer((e, t) => n[e][t] ?? e, e)
     }
     o(i, "useStateMachine");
     var u = o(e => {
@@ -568,7 +568,7 @@
             }
         });
         return t.useEffect(() => {
-            "mounted" === f ? (l.current = d.current ? ? s(a.current), d.current = void 0) : l.current = "none"
+            "mounted" === f ? (l.current = d.current ?? s(a.current), d.current = void 0) : l.current = "none"
         }, [f]), (0, n.f)(() => {
             let t = a.current,
                 n = c.current;
@@ -579,7 +579,7 @@
             }
         }, [e, v]), (0, n.f)(() => {
             if (r) {
-                let e, t = r.ownerDocument.defaultView ? ? window,
+                let e, t = r.ownerDocument.defaultView ?? window,
                     n = o(n => {
                         let o = s(a.current).includes(CSS.escape(n.animationName));
                         if (n.target === r && o && (v("ANIMATION_END"), !c.current)) {

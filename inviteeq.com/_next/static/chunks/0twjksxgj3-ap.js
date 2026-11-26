@@ -346,7 +346,7 @@
             let u = null,
                 a = r.hashFragment;
             if (a) {
-                if (null === (u = "top" === a ? document.body : document.getElementById(a) ? ? document.getElementsByName(a)[0] ? ? null)) {
+                if (null === (u = "top" === a ? document.body : document.getElementById(a) ?? document.getElementsByName(a)[0] ?? null)) {
                     l.current = !1, r.onlyHashChange = !1, r.hashFragment = null;
                     return
                 }
@@ -517,7 +517,7 @@
                         else return e + "/";
                     return e[1] + "/"
                 }(o),
-                m = y ? ? L,
+                m = y ?? L,
                 T = void 0 === y ? void 0 : L,
                 C = (0, a.jsxs)(j, {
                     renderTree: t,

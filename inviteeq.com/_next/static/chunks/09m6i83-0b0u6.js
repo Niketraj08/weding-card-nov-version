@@ -267,8 +267,8 @@
         };
 
     function u(e) {
-        if ("CUSTOM" !== e.type) return g[e.type] ? ? "celebration";
-        let a = e.name ? ? "";
+        if ("CUSTOM" !== e.type) return g[e.type] ?? "celebration";
+        let a = e.name ?? "";
         for (let [e, t] of p)
             if (e.test(a)) return t;
         return "celebration"
@@ -332,7 +332,7 @@
         let a = new Map;
         for (let i of e) {
             var t, r;
-            let e = (null == (t = i.venueName) ? void 0 : t.trim()) ? ? "",
+            let e = (null == (t = i.venueName) ? void 0 : t.trim()) ?? "",
                 n = (0, l.x)(i);
             if (!e && !n && !(null == (r = i.mapsUrl) ? void 0 : r.trim())) continue;
             let s = (0, l.F)(i),
@@ -377,13 +377,13 @@
         return [...e].filter(e => {
             var a;
             return null == (a = e.name) ? void 0 : a.trim()
-        }).sort((e, a) => (e.displayOrder ? ? 0) - (a.displayOrder ? ? 0))
+        }).sort((e, a) => (e.displayOrder ?? 0) - (a.displayOrder ?? 0))
     }, "$", 0, function(e) {
         var a;
-        return e.find(e => "WEDDING" === e.type) ? ? e.find(e => (0, h.Y)(e)) ? ? e.find(e => "wedding" === u(e)) ? ? (null == (a = w(e)) ? void 0 : a.event) ? ? e.find(e => e.venueName || e.venueAddress) ? ? e[0]
+        return e.find(e => "WEDDING" === e.type) ?? e.find(e => (0, h.Y)(e)) ?? e.find(e => "wedding" === u(e)) ?? (null == (a = w(e)) ? void 0 : a.event) ?? e.find(e => e.venueName || e.venueAddress) ?? e[0]
     }, "N", 0, w, "d", 0, function(e) {
         let a = {};
-        for (let r of e ? ? []) {
+        for (let r of e ?? []) {
             var t;
             let e = null == (t = r.overrides) ? void 0 : t.deviDarbar;
             if (e && "object" == typeof e)
@@ -401,7 +401,7 @@
         return null !== a && null !== t && t < a
     }, "f", 0, function(e) {
         if (!(null == e ? void 0 : e.enabled)) return [];
-        let a = (e.content ? ? "").trim();
+        let a = (e.content ?? "").trim();
         return a ? (/\n\s*\n/.test(a) ? a.split(/\n\s*\n/) : a.split(/\n/)).map(e => e.trim()).filter(Boolean).map(e => {
             let a = e.match(/^([^.:!?—\n]{2,48})\s*(?::|—|–)\s+([\s\S]+)$/);
             return a ? {
@@ -1522,8 +1522,8 @@
         };
 
     function g(e) {
-        if ("CUSTOM" !== e.type) return p[e.type] ? ? "ghat";
-        let a = e.name ? ? "";
+        if ("CUSTOM" !== e.type) return p[e.type] ?? "ghat";
+        let a = e.name ?? "";
         for (let [e, t] of c)
             if (e.test(a)) return t;
         return "ghat"
@@ -1585,13 +1585,13 @@
         return [...e].filter(e => {
             var a;
             return null == (a = e.name) ? void 0 : a.trim()
-        }).sort((e, a) => (e.displayOrder ? ? 0) - (a.displayOrder ? ? 0))
+        }).sort((e, a) => (e.displayOrder ?? 0) - (a.displayOrder ?? 0))
     }, "$", 0, function(e) {
         var a;
-        return e.find(e => "WEDDING" === e.type) ? ? e.find(e => (0, l.Y)(e)) ? ? e.find(e => "wedding" === g(e)) ? ? (null == (a = f(e)) ? void 0 : a.event) ? ? e.find(e => e.venueName || e.venueAddress) ? ? e[0]
+        return e.find(e => "WEDDING" === e.type) ?? e.find(e => (0, l.Y)(e)) ?? e.find(e => "wedding" === g(e)) ?? (null == (a = f(e)) ? void 0 : a.event) ?? e.find(e => e.venueName || e.venueAddress) ?? e[0]
     }, "N", 0, f, "S", 0, function(e) {
         let a = {};
-        for (let r of e ? ? []) {
+        for (let r of e ?? []) {
             var t;
             let e = null == (t = r.overrides) ? void 0 : t.kashi;
             if (e && "object" == typeof e)
@@ -1605,7 +1605,7 @@
         return a
     }, "f", 0, function(e) {
         if (!(null == e ? void 0 : e.enabled)) return [];
-        let a = (e.content ? ? "").trim();
+        let a = (e.content ?? "").trim();
         return a ? (/\n\s*\n/.test(a) ? a.split(/\n\s*\n/) : a.split(/\n/)).map(e => e.trim()).filter(Boolean).map(e => {
             let a = e.match(/^([^.:!?—\n]{2,48})\s*(?::|—|–)\s+([\s\S]+)$/);
             return a ? {
@@ -2202,9 +2202,9 @@
             }
         };
     e.s(["a", 0, p, "b", 0, g, "L", 0, A, "S", 0, x, "f", 0, h, "V", 0, y, "i", 0, v, "$", 0, j, "d", 0, i, "F", 0, u, "E", 0, c, "P", 0, f, "q", 0, d, "n", 0, l, "W", 0, m, "X", 0, function(e) {
-        let a = e.type ? ? "CUSTOM";
+        let a = e.type ?? "CUSTOM";
         if ("CUSTOM" !== a) return k[a];
-        let t = e.name ? ? "";
+        let t = e.name ?? "";
         for (let [e, a] of $)
             if (e.test(t)) return a;
         return k.CUSTOM

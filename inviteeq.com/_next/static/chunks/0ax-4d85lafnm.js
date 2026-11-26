@@ -342,13 +342,13 @@
                     message: i
                 } = e;
                 return "invalid_enum_value" === t.code ? {
-                    message: i ? ? s.defaultError
+                    message: i ?? s.defaultError
                 } : void 0 === s.data ? {
-                    message: i ? ? r ? ? s.defaultError
+                    message: i ?? r ?? s.defaultError
                 } : "invalid_type" !== t.code ? {
                     message: s.defaultError
                 } : {
-                    message: i ? ? a ? ? s.defaultError
+                    message: i ?? a ?? s.defaultError
                 }
             },
             description: s
@@ -401,7 +401,7 @@
             let a = {
                     common: {
                         issues: [],
-                        async: (null == t ? void 0 : t.async) ? ? !1,
+                        async: (null == t ? void 0 : t.async) ?? !1,
                         contextualErrorMap: null == t ? void 0 : t.errorMap
                     },
                     path: (null == t ? void 0 : t.path) || [],
@@ -881,8 +881,8 @@
             }) : this._addCheck({
                 kind: "datetime",
                 precision: void 0 === (null == e ? void 0 : e.precision) ? null : null == e ? void 0 : e.precision,
-                offset: (null == e ? void 0 : e.offset) ? ? !1,
-                local: (null == e ? void 0 : e.local) ? ? !1,
+                offset: (null == e ? void 0 : e.offset) ?? !1,
+                local: (null == e ? void 0 : e.local) ?? !1,
                 ...r.errToObj(null == e ? void 0 : e.message)
             })
         }
@@ -1045,7 +1045,7 @@
     B.create = e => new B({
         checks: [],
         typeName: s.ZodString,
-        coerce: (null == e ? void 0 : e.coerce) ? ? !1,
+        coerce: (null == e ? void 0 : e.coerce) ?? !1,
         ...O(e)
     });
     class W extends C {
@@ -1342,7 +1342,7 @@
     q.create = e => new q({
         checks: [],
         typeName: s.ZodBigInt,
-        coerce: (null == e ? void 0 : e.coerce) ? ? !1,
+        coerce: (null == e ? void 0 : e.coerce) ?? !1,
         ...O(e)
     });
     class J extends C {
@@ -1718,9 +1718,9 @@
                 ...void 0 !== e ? {
                     errorMap: (t, a) => {
                         var s, i;
-                        let n = (null == (s = (i = this._def).errorMap) ? void 0 : s.call(i, t, a).message) ? ? a.defaultError;
+                        let n = (null == (s = (i = this._def).errorMap) ? void 0 : s.call(i, t, a).message) ?? a.defaultError;
                         return "unrecognized_keys" === t.code ? {
-                            message: r.errToObj(e).message ? ? n
+                            message: r.errToObj(e).message ?? n
                         } : {
                             message: n
                         }

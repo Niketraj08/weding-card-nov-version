@@ -13,12 +13,43 @@ const STATIC_DIR = path.join(__dirname, 'inviteeq.com');
 const HTML_FILE = path.join(STATIC_DIR, 'demos', 'kashi-vishwanath.html');
 const LAYOUTS_DIR = path.join(STATIC_DIR, 'layouts', 'kashi-vishwanath');
 
-const rawHtml = fs
-  .readFileSync(HTML_FILE, 'utf-8')
-  .replaceAll('dpl=8acdcd60741d4d58239951e096b06a5a041f6d88', 'dpl=8acdcd60741d4d58239951e096b06a5a041f6d88-v2');
+function normalizeMirroredHtml(html) {
+  let out = html
+    // Remove Cloudflare email-decode script (breaks React hydration inside <section>)
+    .replace(/<script[^>]*email-decode\.min\.js[^>]*><\/script>/gi, '')
+    // Remove Cloudflare challenge-platform inline script (mutates body/head)
+    .replace(/<script>\s*\(function\(\)\s*\{\s*function c\(\)\s*\{[\s\S]*?challenge-platform[\s\S]*?<\/script>/gi, '')
+    // Restore Cloudflare-obfuscated mailto link
+    .replace(
+      /href="\/cdn-cgi\/l\/email-protection#[^"]*"/g,
+      'href="mailto:?subject=Vedant%20%26%20Gauri&amp;body=You&#x27;re%20invited%20to%20Vedant%20%26%20Gauri!%20%23"'
+    )
+    // Cache-bust Next.js chunks consistently across tags, flight payload, and Turbopack
+    .replaceAll('dpl=8acdcd60741d4d58239951e096b06a5a041f6d88', 'dpl=8acdcd60741d4d58239951e096b06a5a041f6d88-v2');
+
+  // Preserve <script> and <style> blocks verbatim while collapsing HTML beautifier whitespace
+  const blocks = [];
+  out = out.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, (match) => {
+    const idx = blocks.length;
+    blocks.push(match);
+    return `<__BLOCK_${idx}__>`;
+  });
+
+  out = out
+    .replace(/<!-- -->/g, '\u0000EMPTYCOMMENT\u0000')
+    .replace(/\s*\n\s*\u0000EMPTYCOMMENT\u0000/g, ' <!-- -->')
+    .replace(/\u0000EMPTYCOMMENT\u0000/g, '<!-- -->')
+    .replace(/>\s*\n\s*</g, '><')
+    .replace(/\s*\n\s*/g, ' ')
+    .replace(/<__BLOCK_(\d+)__>/g, (_, idx) => blocks[Number(idx)]);
+
+  return out;
+}
+
+const rawHtml = normalizeMirroredHtml(fs.readFileSync(HTML_FILE, 'utf-8'));
 const rootPatchedHtml = rawHtml.replace(
-  '<head>',
-  '<head><script>if(window.location.pathname!=="/demos/kashi-vishwanath"){window.history.replaceState(null,"","/demos/kashi-vishwanath"+window.location.search+window.location.hash);}</script>'
+  'var v = localStorage.getItem("wcm-surfaces");',
+  'if (window.location.pathname !== "/demos/kashi-vishwanath") { window.history.replaceState(null, "", "/demos/kashi-vishwanath" + window.location.search + window.location.hash); } var v = localStorage.getItem("wcm-surfaces");'
 );
 
 const app = express();
